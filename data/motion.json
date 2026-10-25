@@ -1,0 +1,162 @@
+{
+ "_note": "Mega-menu motion copied from the original's Web Animations (duration/delay in ms).",
+ "menuOpen": [
+  {
+   "selector": "[data-clone-overlay=menu] .fixed.top-0.left-0.z-50 > .relative.z-20",
+   "keyframes": [
+    {
+     "clipPath": "inset(0px 100% 0px 0px)"
+    },
+    {
+     "clipPath": "inset(0px)"
+    }
+   ],
+   "duration": 300,
+   "delay": 0,
+   "easing": "cubic-bezier(0.65, 0, 0.35, 1)"
+  },
+  {
+   "selector": "[data-clone-overlay=menu] .fixed.top-0.left-0.z-50 > .relative.z-20 nav > div[style]",
+   "keyframes": [
+    {
+     "opacity": 0
+    },
+    {
+     "opacity": 1
+    }
+   ],
+   "duration": 200,
+   "delay": 80,
+   "stagger": 40,
+   "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+  },
+  {
+   "selector": "[data-clone-overlay=menu] .fixed.top-0.left-0.z-50 > .relative.z-20 [class*='lte-xl:w-full']",
+   "keyframes": [
+    {
+     "opacity": 0
+    },
+    {
+     "opacity": 1
+    }
+   ],
+   "duration": 200,
+   "delay": 200,
+   "easing": "cubic-bezier(0.2, 0, 0.38, 1)"
+  },
+  {
+   "selector": "[data-clone-overlay=menu] .fixed.top-0.left-0.z-50 > .relative.z-10",
+   "keyframes": [
+    {
+     "clipPath": "inset(0px 100% 0px 0px)"
+    },
+    {
+     "clipPath": "inset(0px)"
+    }
+   ],
+   "duration": 200,
+   "delay": 300,
+   "easing": "cubic-bezier(0.65, 0, 0.35, 1)"
+  },
+  {
+   "selector": "[data-clone-overlay=menu] .fixed.top-0.left-0.z-50 > .relative.z-10 .pointer-events-none.absolute.inset-0",
+   "keyframes": [
+    {
+     "opacity": 0
+    },
+    {
+     "opacity": 1
+    }
+   ],
+   "duration": 300,
+   "delay": 100,
+   "easing": "cubic-bezier(0.2, 0, 0.38, 1)"
+  }
+ ],
+ "menuClose": [
+  {
+   "selector": "[data-clone-overlay=menu] .fixed.top-0.left-0.z-50 > .relative.z-10 .pointer-events-none.absolute.inset-0",
+   "keyframes": [
+    {
+     "opacity": 1
+    },
+    {
+     "opacity": 0
+    }
+   ],
+   "duration": 350,
+   "delay": 0,
+   "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+  },
+  {
+   "selector": "[data-clone-overlay=menu] .fixed.top-0.left-0.z-50 > .relative.z-10 .pointer-events-none.absolute.z-10",
+   "keyframes": [
+    {
+     "opacity": 1
+    },
+    {
+     "opacity": 0
+    }
+   ],
+   "duration": 200,
+   "delay": 0,
+   "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+  },
+  {
+   "selector": "[data-clone-overlay=menu] .fixed.top-0.left-0.z-50 > .relative.z-10 [class*='leading-5xl-tight'], [data-clone-overlay=menu] .fixed.top-0.left-0.z-50 > .relative.z-10 [class*='mt-2 text-lg'], [data-clone-overlay=menu] .fixed.top-0.left-0.z-50 > .relative.z-10 .pointer-events-auto.mt-8",
+   "keyframes": [
+    {
+     "opacity": 1
+    },
+    {
+     "opacity": 0
+    }
+   ],
+   "duration": 200,
+   "delay": 100,
+   "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+  },
+  {
+   "selector": "[data-clone-overlay=menu] .fixed.top-0.left-0.z-50 > .relative.z-10",
+   "keyframes": [
+    {
+     "clipPath": "inset(0px)"
+    },
+    {
+     "clipPath": "inset(0px 100% 0px 0px)"
+    }
+   ],
+   "duration": 200,
+   "delay": 100,
+   "easing": "cubic-bezier(0.65, 0, 0.35, 1)"
+  },
+  {
+   "selector": "[data-clone-overlay=menu] .fixed.top-0.left-0.z-50 > .relative.z-20 [class*='lte-xl:w-full']",
+   "keyframes": [
+    {
+     "opacity": 1
+    },
+    {
+     "opacity": 0
+    }
+   ],
+   "duration": 400,
+   "delay": 0,
+   "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+  },
+  {
+   "selector": "[data-clone-overlay=menu] .fixed.top-0.left-0.z-50 > .relative.z-20",
+   "keyframes": [
+    {
+     "clipPath": "inset(0px)"
+    },
+    {
+     "clipPath": "inset(0px 100% 0px 0px)"
+    }
+   ],
+   "duration": 200,
+   "delay": 400,
+   "easing": "linear"
+  }
+ ]
+}

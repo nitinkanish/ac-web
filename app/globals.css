@@ -1,0 +1,57 @@
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 10000;
+  background: #fff;
+  padding: 0.5rem 0.8rem;
+}
+.skip:focus { top: 0.5rem; }
+.ac-button { text-decoration: none; }
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(3, 11, 16, 0.62);
+}
+.welcome-card {
+  display: flex;
+  flex-direction: column;
+  width: min(34rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 2rem);
+  overflow: hidden;
+  background: #fff;
+  color: #10384f;
+}
+.welcome-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  max-height: calc(100vh - 2rem);
+}
+.welcome-scroll {
+  overflow: auto;
+  padding: 1.5rem 1.5rem 0.5rem;
+}
+.welcome-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 1.5rem 1.5rem;
+  background: #fff;
+}
+.prose { max-width: 70ch; }
+.prose p { margin: 0 0 1rem; }
+.prose a { text-decoration: underline; }
+.hp { position: absolute; left: -9999px; height: 0; overflow: hidden; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 0.55rem 0.6rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+th { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.video { position: relative; padding-top: 56.25%; background: #030b10; }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }

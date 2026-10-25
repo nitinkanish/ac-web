@@ -1,0 +1,30 @@
+/* Clone helpers: each bp-A-B wrapper shows its content tree only between A px and B px (0 = open end), matching the original's per-breakpoint markup. */
+.bp-0-768 { display: none; }
+@media (max-width: 767.98px) { .bp-0-768 { display: contents; } }
+.bp-0-1024 { display: none; }
+@media (max-width: 1023.98px) { .bp-0-1024 { display: contents; } }
+.bp-0-1280 { display: none; }
+@media (max-width: 1279.98px) { .bp-0-1280 { display: contents; } }
+.bp-0-1440 { display: none; }
+@media (max-width: 1439.98px) { .bp-0-1440 { display: contents; } }
+.bp-768-1024 { display: none; }
+@media (min-width: 768px) and (max-width: 1023.98px) { .bp-768-1024 { display: contents; } }
+.bp-768-1280 { display: none; }
+@media (min-width: 768px) and (max-width: 1279.98px) { .bp-768-1280 { display: contents; } }
+.bp-768-1440 { display: none; }
+@media (min-width: 768px) and (max-width: 1439.98px) { .bp-768-1440 { display: contents; } }
+.bp-768-0 { display: none; }
+@media (min-width: 768px) { .bp-768-0 { display: contents; } }
+.bp-1024-1280 { display: none; }
+@media (min-width: 1024px) and (max-width: 1279.98px) { .bp-1024-1280 { display: contents; } }
+.bp-1024-1440 { display: none; }
+@media (min-width: 1024px) and (max-width: 1439.98px) { .bp-1024-1440 { display: contents; } }
+.bp-1024-0 { display: none; }
+@media (min-width: 1024px) { .bp-1024-0 { display: contents; } }
+.bp-1280-1440 { display: none; }
+@media (min-width: 1280px) and (max-width: 1439.98px) { .bp-1280-1440 { display: contents; } }
+.bp-1280-0 { display: none; }
+@media (min-width: 1280px) { .bp-1280-0 { display: contents; } }
+.bp-1440-0 { display: none; }
+@media (min-width: 1440px) { .bp-1440-0 { display: contents; } }
+[data-clone-track] { transition: transform 0.5s ease-in-out; }

@@ -1,0 +1,1506 @@
+{
+ "footer": {
+  "node": {
+   "t": "footer",
+   "c": [
+    {
+     "t": "div",
+     "a": {
+      "id": "footer"
+     },
+     "c": [
+      {
+       "t": "footer",
+       "a": {
+        "data-qa": "footer-block",
+        "class": "bg-background-bg-footer flex flex-col"
+       },
+       "c": [
+        {
+         "t": "div",
+         "a": {
+          "class": "lte-lg:pt-[132px] lte-md:pt-[112px] relative m-auto w-full max-w-[1920px]"
+         },
+         "c": [
+          {
+           "t": "div",
+           "a": {
+            "class": "flex flex-col-reverse gap-8 px-5 py-8 md:px-8 lg:grid lg:grid-cols-[375px_1fr] lg:px-10 lg:py-16 xl:grid-cols-[501px_1fr] xl:px-24 xl:py-20"
+           },
+           "c": [
+            {
+             "t": "div",
+             "a": {
+              "class": "lg:grid lg:grid-rows-[100px_1fr] lg:gap-16 xl:gap-[4.75rem]"
+             },
+             "c": [
+              {
+               "t": "div",
+               "a": {
+                "class": "lte-lg:top-8 lte-lg:absolute h-[80px] w-[80px] md:h-[100px] md:w-[100px] lg:h-[100px] lg:w-[100px] xl:h-[100px] xl:w-[100px]",
+                "data-testid": "footer-logo-container"
+               },
+               "c": [
+                {
+                 "t": "a",
+                 "a": {
+                  "target": "",
+                  "class": " no-select ",
+                  "data-qa": "Link",
+                  "data-testid": "Link",
+                  "href": "/"
+                 },
+                 "c": [
+                  {
+                   "t": "span",
+                   "c": [
+                    {
+                     "t": "img",
+                     "a": {
+                      "src": "/media/6fec066109dc14.svg",
+                      "alt": "Bayer Logo",
+                      "class": "h-full object-contain w-full",
+                      "loading": "eager",
+                      "fetchpriority": "high",
+                      "crossorigin": "anonymous",
+                      "data-testid": "next-image",
+                      "data-qa": "footer-logo",
+                      "aria-label": "Bayer Logo"
+                     }
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "t": "div",
+               "a": {
+                "class": "flex flex-col gap-6",
+                "data-qa": "stock-price"
+               },
+               "c": [
+                {
+                 "t": "div",
+                 "a": {
+                  "class": "flex flex-col gap-10"
+                 },
+                 "c": [
+                  {
+                   "t": "article",
+                   "a": {
+                    "class": "flex flex-col gap-3",
+                    "aria-label": "Bayer share price"
+                   },
+                   "c": [
+                    {
+                     "t": "div",
+                     "a": {
+                      "class": "flex items-center gap-0.5"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "a": {
+                        "class": "text-text leading-xs text-xs font-bold",
+                        "title": "Bayer"
+                       },
+                       "c": [
+                        "Bayer"
+                       ]
+                      },
+                      {
+                       "t": "span",
+                       "a": {
+                        "class": "text-text leading-xs text-xs",
+                        "aria-hidden": "true"
+                       },
+                       "c": [
+                        "/"
+                       ]
+                      },
+                      {
+                       "t": "time",
+                       "a": {
+                        "class": "text-text leading-xs text-xs",
+                        "datetime": "2026-10-23T16:35:00.000Z",
+                        "title": "Last updated: October 23, 2026 16:35 CEST"
+                       },
+                       "c": [
+                        "October 23, 2026 16:35 CEST"
+                       ]
+                      }
+                     ]
+                    },
+                    {
+                     "t": "div",
+                     "a": {
+                      "class": "flex items-center gap-3"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "a": {
+                        "class": "text-text leading-4xl-none text-4xl",
+                        "aria-label": "Price: 43.98 euros"
+                       },
+                       "c": [
+                        "€ 43.98"
+                       ]
+                      },
+                      {
+                       "t": "fieldset",
+                       "a": {
+                        "class": "m-0 flex items-center gap-2 border-0 p-0"
+                       },
+                       "c": [
+                        {
+                         "t": "legend",
+                         "a": {
+                          "class": "sr-only"
+                         },
+                         "c": [
+                          "Price change indicator"
+                         ]
+                        },
+                        {
+                         "t": "div",
+                         "a": {
+                          "class": "flex h-4 w-4 items-center justify-center rounded-full bg-brand-raspberry-500",
+                          "aria-label": "Price decreased"
+                         },
+                         "c": [
+                          {
+                           "t": "svg",
+                           "a": {
+                            "viewBox": "0 0 24 24",
+                            "width": "24",
+                            "height": "24",
+                            "fill": "currentColor",
+                            "class": "icon h-3.5 w-3.5 text-white block",
+                            "xmlns": "http://www.w3.org/2000/svg",
+                            "aria-label": "Price decrease indicator",
+                            "data-testid": "icon",
+                            "data-qa": "icon"
+                           },
+                           "c": [
+                            {
+                             "t": "title",
+                             "a": {
+                              "id": "callDown-title"
+                             },
+                             "c": [
+                              "Price decrease indicator"
+                             ]
+                            },
+                            {
+                             "t": "path",
+                             "a": {
+                              "d": "M9 18.5V17H15.9462L4.5 5.55375L5.55375 4.5L17 15.9462V9H18.5V18.5H9Z",
+                              "fill": "currentColor",
+                              "stroke": ""
+                             }
+                            }
+                           ]
+                          }
+                         ]
+                        },
+                        {
+                         "t": "span",
+                         "a": {
+                          "class": "leading-base text-text text-base",
+                          "aria-label": "Change: -0.52"
+                         },
+                         "c": [
+                          "-0.52%"
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "t": "article",
+                   "a": {
+                    "class": "flex flex-col gap-3",
+                    "aria-label": "DAX share price"
+                   },
+                   "c": [
+                    {
+                     "t": "div",
+                     "a": {
+                      "class": "flex items-center gap-0.5"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "a": {
+                        "class": "text-text leading-xs text-xs font-bold",
+                        "title": "DAX"
+                       },
+                       "c": [
+                        "DAX"
+                       ]
+                      },
+                      {
+                       "t": "span",
+                       "a": {
+                        "class": "text-text leading-xs text-xs",
+                        "aria-hidden": "true"
+                       },
+                       "c": [
+                        "/"
+                       ]
+                      },
+                      {
+                       "t": "time",
+                       "a": {
+                        "class": "text-text leading-xs text-xs",
+                        "datetime": "2026-10-23T16:50:00.000Z",
+                        "title": "Last updated: October 23, 2026 16:50 CEST"
+                       },
+                       "c": [
+                        "October 23, 2026 16:50 CEST"
+                       ]
+                      }
+                     ]
+                    },
+                    {
+                     "t": "div",
+                     "a": {
+                      "class": "flex items-center gap-3"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "a": {
+                        "class": "text-text leading-4xl-none text-4xl",
+                        "aria-label": "Price: 25,181.65 points"
+                       },
+                       "c": [
+                        "25,181.65"
+                       ]
+                      },
+                      {
+                       "t": "fieldset",
+                       "a": {
+                        "class": "m-0 flex items-center gap-2 border-0 p-0"
+                       },
+                       "c": [
+                        {
+                         "t": "legend",
+                         "a": {
+                          "class": "sr-only"
+                         },
+                         "c": [
+                          "Price change indicator"
+                         ]
+                        },
+                        {
+                         "t": "div",
+                         "a": {
+                          "class": "flex h-4 w-4 items-center justify-center rounded-full bg-brand-raspberry-500",
+                          "aria-label": "Price decreased"
+                         },
+                         "c": [
+                          {
+                           "t": "svg",
+                           "a": {
+                            "viewBox": "0 0 24 24",
+                            "width": "24",
+                            "height": "24",
+                            "fill": "currentColor",
+                            "class": "icon h-3.5 w-3.5 text-white block",
+                            "xmlns": "http://www.w3.org/2000/svg",
+                            "aria-label": "Price decrease indicator",
+                            "data-testid": "icon",
+                            "data-qa": "icon"
+                           },
+                           "c": [
+                            {
+                             "t": "title",
+                             "a": {
+                              "id": "callDown-title"
+                             },
+                             "c": [
+                              "Price decrease indicator"
+                             ]
+                            },
+                            {
+                             "t": "path",
+                             "a": {
+                              "d": "M9 18.5V17H15.9462L4.5 5.55375L5.55375 4.5L17 15.9462V9H18.5V18.5H9Z",
+                              "fill": "currentColor",
+                              "stroke": ""
+                             }
+                            }
+                           ]
+                          }
+                         ]
+                        },
+                        {
+                         "t": "span",
+                         "a": {
+                          "class": "leading-base text-text text-base",
+                          "aria-label": "Change: -0.75"
+                         },
+                         "c": [
+                          "-0.75%"
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "t": "nav",
+             "a": {
+              "aria-label": "Primary footer navigation"
+             },
+             "c": [
+              {
+               "t": "div",
+               "a": {
+                "data-testid": "footer-links",
+                "data-qa": "footer-links",
+                "class": "w-full"
+               },
+               "c": [
+                {
+                 "t": "div",
+                 "a": {
+                  "class": "grid grid-cols-1 gap-8 lg:mt-0 lg:gap-9 xl:gap-12",
+                  "data-testid": "upper-links",
+                  "data-qa": "upper-links"
+                 },
+                 "c": [
+                  {
+                   "t": "div",
+                   "a": {
+                    "class": "font-regular text-text leading-3xl-tight md:leading-5xl-tight text-3xl md:text-5xl"
+                   },
+                   "c": [
+                    {
+                     "t": "span",
+                     "a": {
+                      "class": "bg-gradient-to-r from-gradient-green to-gradient-blue bg-clip-text text-transparent font-bold",
+                      "data-qa": "stage-headline-text"
+                     },
+                     "c": [
+                      "Any questions?"
+                     ]
+                    },
+                    {
+                     "t": "span",
+                     "a": {
+                      "class": "text-text"
+                     },
+                     "c": [
+                      " We're here to help."
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "t": "ul",
+                   "a": {
+                    "class": "grid grid-cols-1 gap-4"
+                   },
+                   "c": [
+                    {
+                     "t": "li",
+                     "c": [
+                      {
+                       "t": "a",
+                       "a": {
+                        "title": "",
+                        "target": "",
+                        "class": "text-text leading-xl-tight font-regular md:leading-4xl-tight flex items-center gap-1 text-xl md:text-4xl no-select ",
+                        "data-qa": "Link",
+                        "data-testid": "Link",
+                        "href": "/about-us/contact"
+                       },
+                       "c": [
+                        {
+                         "t": "span",
+                         "a": {
+                          "class": "lg:hover:from-gradient-green lg:hover:to-gradient-blue lg:hover:bg-gradient-to-r lg:hover:bg-clip-text lg:hover:text-transparent"
+                         },
+                         "c": [
+                          "Overview and Contacts"
+                         ]
+                        },
+                        {
+                         "t": "span",
+                         "c": [
+                          {
+                           "t": "svg",
+                           "a": {
+                            "viewBox": "0 0 24 24",
+                            "width": "24",
+                            "height": "24",
+                            "fill": "currentColor",
+                            "class": "icon rtl:scale-x-[-1] block",
+                            "xmlns": "http://www.w3.org/2000/svg",
+                            "aria-label": "",
+                            "data-testid": "icon",
+                            "data-qa": "icon"
+                           },
+                           "c": [
+                            {
+                             "t": "title",
+                             "a": {
+                              "id": "chevron_right-title"
+                             }
+                            },
+                            {
+                             "t": "path",
+                             "a": {
+                              "d": "M12.8354 12L8.23535 7.4L9.63535 6L15.6354 12L9.63535 18L8.23535 16.6L12.8354 12Z",
+                              "fill": "currentColor",
+                              "stroke": ""
+                             }
+                            }
+                           ]
+                          }
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    },
+                    {
+                     "t": "li",
+                     "c": [
+                      {
+                       "t": "a",
+                       "a": {
+                        "title": "",
+                        "target": "",
+                        "class": "text-text leading-xl-tight font-regular md:leading-4xl-tight flex items-center gap-1 text-xl md:text-4xl no-select ",
+                        "data-qa": "Link",
+                        "data-testid": "Link",
+                        "href": "https://www.bayer.com/en/portfolio/product-portfolio"
+                       },
+                       "c": [
+                        {
+                         "t": "span",
+                         "a": {
+                          "class": "lg:hover:from-gradient-green lg:hover:to-gradient-blue lg:hover:bg-gradient-to-r lg:hover:bg-clip-text lg:hover:text-transparent"
+                         },
+                         "c": [
+                          "Products A-Z"
+                         ]
+                        },
+                        {
+                         "t": "span",
+                         "c": [
+                          {
+                           "t": "svg",
+                           "a": {
+                            "viewBox": "0 0 24 24",
+                            "width": "24",
+                            "height": "24",
+                            "fill": "currentColor",
+                            "class": "icon rtl:scale-x-[-1] block",
+                            "xmlns": "http://www.w3.org/2000/svg",
+                            "aria-label": "",
+                            "data-testid": "icon",
+                            "data-qa": "icon"
+                           },
+                           "c": [
+                            {
+                             "t": "title",
+                             "a": {
+                              "id": "chevron_right-title"
+                             }
+                            },
+                            {
+                             "t": "path",
+                             "a": {
+                              "d": "M12.8354 12L8.23535 7.4L9.63535 6L15.6354 12L9.63535 18L8.23535 16.6L12.8354 12Z",
+                              "fill": "currentColor",
+                              "stroke": ""
+                             }
+                            }
+                           ]
+                          }
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    },
+                    {
+                     "t": "li",
+                     "c": [
+                      {
+                       "t": "a",
+                       "a": {
+                        "title": "",
+                        "target": "",
+                        "class": "text-text leading-xl-tight font-regular md:leading-4xl-tight flex items-center gap-1 text-xl md:text-4xl no-select ",
+                        "data-qa": "Link",
+                        "data-testid": "Link",
+                        "href": "https://www.bayer.com/en/portfolio/pharmaceuticals/patient-information/reporting-a-side-effect"
+                       },
+                       "c": [
+                        {
+                         "t": "span",
+                         "a": {
+                          "class": "lg:hover:from-gradient-green lg:hover:to-gradient-blue lg:hover:bg-gradient-to-r lg:hover:bg-clip-text lg:hover:text-transparent"
+                         },
+                         "c": [
+                          "Report a Side Effect"
+                         ]
+                        },
+                        {
+                         "t": "span",
+                         "c": [
+                          {
+                           "t": "svg",
+                           "a": {
+                            "viewBox": "0 0 24 24",
+                            "width": "24",
+                            "height": "24",
+                            "fill": "currentColor",
+                            "class": "icon rtl:scale-x-[-1] block",
+                            "xmlns": "http://www.w3.org/2000/svg",
+                            "aria-label": "",
+                            "data-testid": "icon",
+                            "data-qa": "icon"
+                           },
+                           "c": [
+                            {
+                             "t": "title",
+                             "a": {
+                              "id": "chevron_right-title"
+                             }
+                            },
+                            {
+                             "t": "path",
+                             "a": {
+                              "d": "M12.8354 12L8.23535 7.4L9.63535 6L15.6354 12L9.63535 18L8.23535 16.6L12.8354 12Z",
+                              "fill": "currentColor",
+                              "stroke": ""
+                             }
+                            }
+                           ]
+                          }
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "t": "hr",
+                   "a": {
+                    "class": "border-border-accented lg:hidden"
+                   }
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "t": "hr",
+           "a": {
+            "class": "border-border-accented mx-5 md:mx-8 lg:mx-10 xl:mx-24"
+           }
+          },
+          {
+           "t": "div",
+           "a": {
+            "class": "grid grid-cols-1 gap-8 px-5 py-8 md:gap-12 md:px-8 lg:px-10 lg:pt-14 lg:pb-16 xl:w-full xl:grid-cols-[501px_1fr] xl:gap-8 xl:px-24 xl:pt-14 xl:pb-20"
+           },
+           "c": [
+            {
+             "t": "nav",
+             "a": {
+              "aria-label": "Social media links"
+             },
+             "c": [
+              {
+               "t": "div",
+               "a": {
+                "data-testid": "footer-links",
+                "data-qa": "footer-links",
+                "class": "w-full"
+               },
+               "c": [
+                {
+                 "t": "div",
+                 "a": {
+                  "data-testid": "social-media-links",
+                  "data-qa": "social-media-links",
+                  "class": "grid grid-cols-1 gap-6 lg:gap-10"
+                 },
+                 "c": [
+                  {
+                   "t": "ul",
+                   "a": {
+                    "class": "inline-grid grid-cols-[repeat(6,fit-content(100%))] grid-rows-[repeat(2,fit-content(100%))] gap-x-3 gap-y-3 self-stretch",
+                    "aria-label": "Social media links"
+                   },
+                   "c": [
+                    {
+                     "t": "li",
+                     "a": {
+                      "class": "p-[11px]"
+                     },
+                     "c": [
+                      {
+                       "t": "a",
+                       "a": {
+                        "href": "http://www.facebook.com/Bayer",
+                        "class": "text-icon-icon-primary lg:hover:text-icon-icon-hover lg:hover:!border-text-hover block !border-b-[1px] !border-transparent lg:hover:!border-solid no-select ",
+                        "title": "Facebook1 alt text",
+                        "target": "_blank",
+                        "rel": "noopener noreferrer",
+                        "data-qa": "Link",
+                        "data-testid": "Link"
+                       },
+                       "c": [
+                        {
+                         "t": "svg",
+                         "a": {
+                          "viewBox": "0 0 22 22",
+                          "width": "24",
+                          "height": "24",
+                          "fill": "currentColor",
+                          "class": "icon fill-icon-icon-primary h-[22px] w-[22px] block",
+                          "xmlns": "http://www.w3.org/2000/svg",
+                          "aria-label": "Facebook1 alt text",
+                          "data-testid": "icon",
+                          "data-qa": "icon"
+                         },
+                         "c": [
+                          {
+                           "t": "title",
+                           "a": {
+                            "id": "social-fb-title"
+                           },
+                           "c": [
+                            "Facebook1 alt text"
+                           ]
+                          },
+                          {
+                           "t": "path",
+                           "a": {
+                            "d": "M8.7854 19.9309V13.835H6.89554V11.0339H8.7854V9.82691C8.7854 6.70642 10.1971 5.26038 13.2603 5.26038C13.5666 5.26038 13.9898 5.29247 14.3817 5.33906C14.6751 5.36996 14.9662 5.41972 15.2533 5.48802V8.02795C15.0874 8.01274 14.921 8.00357 14.7544 8.00045C14.5678 7.99563 14.3812 7.99333 14.1945 7.99358C13.6544 7.99358 13.2328 8.06691 12.915 8.22962C12.7017 8.33727 12.5222 8.50168 12.3963 8.70476C12.1992 9.02559 12.1106 9.46483 12.1106 10.0431V11.0339H15.1043L14.8094 12.6403L14.5902 13.835H12.1106V20.1333C16.6496 19.5848 20.1666 15.7203 20.1666 11.0339C20.1666 5.97156 16.0622 1.86719 10.9999 1.86719C5.93763 1.86719 1.83325 5.97156 1.83325 11.0339C1.83325 15.333 4.79256 18.9401 8.7854 19.9309Z",
+                            "fill": "currentColor",
+                            "stroke": ""
+                           }
+                          }
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    },
+                    {
+                     "t": "li",
+                     "a": {
+                      "class": "p-[11px]"
+                     },
+                     "c": [
+                      {
+                       "t": "a",
+                       "a": {
+                        "href": "http://twitter.com/bayer",
+                        "class": "text-icon-icon-primary lg:hover:text-icon-icon-hover lg:hover:!border-text-hover block !border-b-[1px] !border-transparent lg:hover:!border-solid no-select ",
+                        "title": "X",
+                        "target": "_blank",
+                        "rel": "noopener noreferrer",
+                        "data-qa": "Link",
+                        "data-testid": "Link"
+                       },
+                       "c": [
+                        {
+                         "t": "svg",
+                         "a": {
+                          "viewBox": "0 0 22 22",
+                          "width": "24",
+                          "height": "24",
+                          "fill": "currentColor",
+                          "class": "icon fill-icon-icon-primary h-[22px] w-[22px] block",
+                          "xmlns": "http://www.w3.org/2000/svg",
+                          "aria-label": "X",
+                          "data-testid": "icon",
+                          "data-qa": "icon"
+                         },
+                         "c": [
+                          {
+                           "t": "title",
+                           "a": {
+                            "id": "social-x-title"
+                           },
+                           "c": [
+                            "X"
+                           ]
+                          },
+                          {
+                           "t": "path",
+                           "a": {
+                            "d": "M16.2715 2.71387H19.0826L12.941 9.73401L20.1666 19.2849H14.5092L10.0787 13.4916L5.00797 19.2849H2.19534L8.76478 11.7759L1.83325 2.71463H7.63422L11.6393 8.00991L16.2715 2.71387ZM15.2853 17.6028H16.8429L6.78784 4.3081H5.11645L15.2853 17.6028Z",
+                            "fill": "currentColor",
+                            "stroke": ""
+                           }
+                          }
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    },
+                    {
+                     "t": "li",
+                     "a": {
+                      "class": "p-[11px]"
+                     },
+                     "c": [
+                      {
+                       "t": "a",
+                       "a": {
+                        "href": "http://www.youtube.com/user/BayerTVinternational",
+                        "class": "text-icon-icon-primary lg:hover:text-icon-icon-hover lg:hover:!border-text-hover block !border-b-[1px] !border-transparent lg:hover:!border-solid no-select ",
+                        "title": "YouTube",
+                        "target": "_blank",
+                        "rel": "noopener noreferrer",
+                        "data-qa": "Link",
+                        "data-testid": "Link"
+                       },
+                       "c": [
+                        {
+                         "t": "svg",
+                         "a": {
+                          "viewBox": "0 0 22 22",
+                          "width": "24",
+                          "height": "24",
+                          "fill": "currentColor",
+                          "class": "icon fill-icon-icon-primary h-[22px] w-[22px] block",
+                          "xmlns": "http://www.w3.org/2000/svg",
+                          "aria-label": "YouTube",
+                          "data-testid": "icon",
+                          "data-qa": "icon"
+                         },
+                         "c": [
+                          {
+                           "t": "title",
+                           "a": {
+                            "id": "social-youtube-title"
+                           },
+                           "c": [
+                            "YouTube"
+                           ]
+                          },
+                          {
+                           "t": "path",
+                           "a": {
+                            "d": "M19.7834 6.55845C19.6798 6.16831 19.4755 5.81223 19.191 5.52587C18.9066 5.23951 18.5518 5.03292 18.1624 4.92678C16.7331 4.54102 11.0002 4.54102 11.0002 4.54102C11.0002 4.54102 5.26718 4.54102 3.83718 4.92678C3.44791 5.0331 3.09337 5.23977 2.80904 5.52611C2.52471 5.81246 2.32055 6.16843 2.21697 6.55845C1.8335 7.99761 1.8335 10.9997 1.8335 10.9997C1.8335 10.9997 1.8335 14.0018 2.21697 15.4409C2.32054 15.8311 2.5248 16.1872 2.80928 16.4735C3.09377 16.7599 3.44849 16.9665 3.83794 17.0726C5.26718 17.4584 11.0002 17.4584 11.0002 17.4584C11.0002 17.4584 16.7331 17.4584 18.1631 17.0726C18.5526 16.9665 18.9074 16.76 19.1919 16.4736C19.4764 16.1872 19.6806 15.8311 19.7841 15.4409C20.1668 14.0018 20.1668 10.9997 20.1668 10.9997C20.1668 10.9997 20.1668 7.99761 19.7834 6.55845ZM9.12482 13.7253V8.27414L13.9167 10.9997L9.12482 13.7253Z",
+                            "fill": "currentColor",
+                            "stroke": ""
+                           }
+                          }
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    },
+                    {
+                     "t": "li",
+                     "a": {
+                      "class": "p-[11px]"
+                     },
+                     "c": [
+                      {
+                       "t": "a",
+                       "a": {
+                        "href": "http://www.linkedin.com/company/bayer",
+                        "class": "text-icon-icon-primary lg:hover:text-icon-icon-hover lg:hover:!border-text-hover block !border-b-[1px] !border-transparent lg:hover:!border-solid no-select ",
+                        "title": "Linkedin",
+                        "target": "_blank",
+                        "rel": "noopener noreferrer",
+                        "data-qa": "Link",
+                        "data-testid": "Link"
+                       },
+                       "c": [
+                        {
+                         "t": "svg",
+                         "a": {
+                          "viewBox": "0 0 22 22",
+                          "width": "24",
+                          "height": "24",
+                          "fill": "currentColor",
+                          "class": "icon fill-icon-icon-primary h-[22px] w-[22px] block",
+                          "xmlns": "http://www.w3.org/2000/svg",
+                          "aria-label": "Linkedin",
+                          "data-testid": "icon",
+                          "data-qa": "icon"
+                         },
+                         "c": [
+                          {
+                           "t": "title",
+                           "a": {
+                            "id": "social-linkedin-title"
+                           },
+                           "c": [
+                            "Linkedin"
+                           ]
+                          },
+                          {
+                           "t": "path",
+                           "a": {
+                            "d": "M17.4525 17.4561H14.7376V13.202C14.7376 12.1875 14.717 10.882 13.3229 10.882C11.9074 10.882 11.6912 11.9859 11.6912 13.1271V17.4561H8.97638V8.70801H11.5843V9.90044H11.6194C11.9838 9.21294 12.8699 8.48724 14.1937 8.48724C16.9445 8.48724 17.4533 10.2977 17.4533 12.6543L17.4525 17.4561ZM5.91013 7.51099C5.03624 7.51099 4.33422 6.80363 4.33422 5.93356C4.33422 5.06426 5.037 4.35766 5.91013 4.35766C6.78096 4.35766 7.48679 5.06426 7.48679 5.93356C7.48679 6.80363 6.7802 7.51099 5.91013 7.51099ZM7.27138 17.4561H4.54888V8.70801H7.27138V17.4561ZM18.8107 1.83301H3.1861C2.43825 1.83301 1.83325 2.42426 1.83325 3.15377V18.8456C1.83325 19.5759 2.43825 20.1663 3.1861 20.1663H18.8084C19.5555 20.1663 20.1666 19.5759 20.1666 18.8456V3.15377C20.1666 2.42426 19.5555 1.83301 18.8084 1.83301H18.8107Z",
+                            "fill": "currentColor",
+                            "stroke": ""
+                           }
+                          }
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    },
+                    {
+                     "t": "li",
+                     "a": {
+                      "class": "p-[11px]"
+                     },
+                     "c": [
+                      {
+                       "t": "a",
+                       "a": {
+                        "href": "http://instagram.com/bayerofficial",
+                        "class": "text-icon-icon-primary lg:hover:text-icon-icon-hover lg:hover:!border-text-hover block !border-b-[1px] !border-transparent lg:hover:!border-solid no-select ",
+                        "title": "Instagram",
+                        "target": "_blank",
+                        "rel": "noopener noreferrer",
+                        "data-qa": "Link",
+                        "data-testid": "Link"
+                       },
+                       "c": [
+                        {
+                         "t": "svg",
+                         "a": {
+                          "viewBox": "0 0 22 22",
+                          "width": "24",
+                          "height": "24",
+                          "fill": "currentColor",
+                          "class": "icon fill-icon-icon-primary h-[22px] w-[22px] block",
+                          "xmlns": "http://www.w3.org/2000/svg",
+                          "aria-label": "Instagram",
+                          "data-testid": "icon",
+                          "data-qa": "icon"
+                         },
+                         "c": [
+                          {
+                           "t": "title",
+                           "a": {
+                            "id": "social-instagram-title"
+                           },
+                           "c": [
+                            "Instagram"
+                           ]
+                          },
+                          {
+                           "t": "path",
+                           "a": {
+                            "d": "M18.5002 6.83301C18.5002 4.99206 17.0078 3.49967 15.1668 3.49967H6.8335C4.99255 3.49967 3.50016 4.99206 3.50016 6.83301V15.1663C3.50016 17.0073 4.99255 18.4997 6.8335 18.4997H15.1668C17.0078 18.4997 18.5002 17.0073 18.5002 15.1663V6.83301ZM9.11702 7.26514C9.89487 6.86153 10.7803 6.71347 11.6471 6.84196C12.5314 6.97309 13.3506 7.38496 13.9827 8.01709C14.6149 8.64922 15.0267 9.46841 15.1579 10.3527C15.2864 11.2196 15.1383 12.105 14.7347 12.8828C14.3311 13.6607 13.6922 14.2914 12.9093 14.6854C12.1266 15.0794 11.2395 15.2168 10.3743 15.0776C9.50908 14.9384 8.70972 14.5295 8.09001 13.9098C7.4703 13.2901 7.06143 12.4908 6.9222 11.6255C6.78301 10.7603 6.92048 9.87326 7.31445 9.09049C7.70847 8.30768 8.33913 7.66878 9.11702 7.26514ZM11.403 8.49072C10.8828 8.41359 10.3512 8.50244 9.88444 8.74463C9.41781 8.98682 9.03927 9.37039 8.8029 9.84001C8.56661 10.3096 8.48419 10.842 8.56771 11.361C8.65127 11.8801 8.8966 12.3596 9.26839 12.7314C9.64019 13.1032 10.1197 13.3486 10.6388 13.4321C11.1579 13.5156 11.6902 13.4332 12.1598 13.1969C12.6294 12.9606 13.013 12.582 13.2552 12.1154C13.4974 11.6486 13.5862 11.117 13.5091 10.5968C13.4304 10.0663 13.1828 9.57554 12.8035 9.19629C12.4243 8.81704 11.9335 8.56942 11.403 8.49072ZM15.5916 5.58301C16.0519 5.58301 16.425 5.9561 16.425 6.41634C16.425 6.87658 16.0519 7.24967 15.5916 7.24967H15.5835C15.1233 7.24967 14.7502 6.87658 14.7502 6.41634C14.7502 5.9561 15.1233 5.58301 15.5835 5.58301H15.5916ZM20.1668 15.1663C20.1668 17.9278 17.9283 20.1663 15.1668 20.1663H6.8335C4.07207 20.1663 1.8335 17.9278 1.8335 15.1663V6.83301C1.8335 4.07158 4.07207 1.83301 6.8335 1.83301H15.1668C17.9283 1.83301 20.1668 4.07158 20.1668 6.83301V15.1663Z",
+                            "fill": "currentColor",
+                            "stroke": ""
+                           }
+                          }
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "t": "hr",
+             "a": {
+              "class": "border-border-accented md:hidden"
+             }
+            },
+            {
+             "t": "nav",
+             "a": {
+              "aria-label": "Secondary footer navigation",
+              "class": " grid grid-cols-1 gap-12 md:flex md:gap-5 lg:gap-8",
+              "data-testid": "middle-links",
+              "data-qa": "middle-links"
+             },
+             "c": [
+              {
+               "t": "div",
+               "a": {
+                "class": "md:w-[33.33333333333333%]"
+               },
+               "c": [
+                {
+                 "t": "div",
+                 "a": {
+                  "class": "leading-sm custom-letter-spacing text-text text-sm font-medium uppercase"
+                 },
+                 "c": [
+                  "Portfolio"
+                 ]
+                },
+                {
+                 "t": "ul",
+                 "a": {
+                  "class": "mt-6 grid grid-cols-1 gap-3"
+                 },
+                 "c": [
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "a",
+                     "a": {
+                      "title": "",
+                      "target": "",
+                      "class": "text-text lg:hover:text-text-hover leading-lg font-regular lg:hover:!border-text-hover text-start text-lg lg:hover:!border-b-[1px] lg:hover:!border-solid no-select ",
+                      "data-qa": "Link",
+                      "data-testid": "Link",
+                      "href": "/portfolio/pharmaceuticals"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "c": [
+                        "Pharmaceuticals"
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "a",
+                     "a": {
+                      "title": "",
+                      "target": "",
+                      "class": "text-text lg:hover:text-text-hover leading-lg font-regular lg:hover:!border-text-hover text-start text-lg lg:hover:!border-b-[1px] lg:hover:!border-solid no-select ",
+                      "data-qa": "Link",
+                      "data-testid": "Link",
+                      "href": "https://www.bayer.com/en/portfolio/consumer-health"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "c": [
+                        "Consumer Health"
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "a",
+                     "a": {
+                      "title": "",
+                      "target": "",
+                      "class": "text-text lg:hover:text-text-hover leading-lg font-regular lg:hover:!border-text-hover text-start text-lg lg:hover:!border-b-[1px] lg:hover:!border-solid no-select ",
+                      "data-qa": "Link",
+                      "data-testid": "Link",
+                      "href": "https://www.bayer.com/en/portfolio/agriculture"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "c": [
+                        "Crop Science"
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "t": "div",
+               "a": {
+                "class": "md:w-[33.33333333333333%]"
+               },
+               "c": [
+                {
+                 "t": "div",
+                 "a": {
+                  "class": "leading-sm custom-letter-spacing text-text text-sm font-medium uppercase"
+                 },
+                 "c": [
+                  "Investors"
+                 ]
+                },
+                {
+                 "t": "ul",
+                 "a": {
+                  "class": "mt-6 grid grid-cols-1 gap-3"
+                 },
+                 "c": [
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "a",
+                     "a": {
+                      "title": "",
+                      "target": "",
+                      "class": "text-text lg:hover:text-text-hover leading-lg font-regular lg:hover:!border-text-hover text-start text-lg lg:hover:!border-b-[1px] lg:hover:!border-solid no-select ",
+                      "data-qa": "Link",
+                      "data-testid": "Link",
+                      "href": "https://www.bayer.com/en/investors/investor-news"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "c": [
+                        "Investor News"
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "a",
+                     "a": {
+                      "title": "",
+                      "target": "",
+                      "class": "text-text lg:hover:text-text-hover leading-lg font-regular lg:hover:!border-text-hover text-start text-lg lg:hover:!border-b-[1px] lg:hover:!border-solid no-select ",
+                      "data-qa": "Link",
+                      "data-testid": "Link",
+                      "href": "https://www.bayer.com/en/investors/financial-reports"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "c": [
+                        "Financial Reports"
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "a",
+                     "a": {
+                      "title": "",
+                      "target": "",
+                      "class": "text-text lg:hover:text-text-hover leading-lg font-regular lg:hover:!border-text-hover text-start text-lg lg:hover:!border-b-[1px] lg:hover:!border-solid no-select ",
+                      "data-qa": "Link",
+                      "data-testid": "Link",
+                      "href": "https://www.bayer.com/en/investors/events"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "c": [
+                        "Investor Events and Presentations"
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "a",
+                     "a": {
+                      "title": "",
+                      "target": "",
+                      "class": "text-text lg:hover:text-text-hover leading-lg font-regular lg:hover:!border-text-hover text-start text-lg lg:hover:!border-b-[1px] lg:hover:!border-solid no-select ",
+                      "data-qa": "Link",
+                      "data-testid": "Link",
+                      "href": "https://www.bayer.com/en/investors/shareholder-information"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "c": [
+                        "Stock and Debt Information"
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "a",
+                     "a": {
+                      "title": "",
+                      "target": "",
+                      "class": "text-text lg:hover:text-text-hover leading-lg font-regular lg:hover:!border-text-hover text-start text-lg lg:hover:!border-b-[1px] lg:hover:!border-solid no-select ",
+                      "data-qa": "Link",
+                      "data-testid": "Link",
+                      "href": "https://www.bayer.com/en/investors/corporate-governance"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "c": [
+                        "Corporate Governance"
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "t": "div",
+               "a": {
+                "class": "md:w-[33.33333333333333%]"
+               },
+               "c": [
+                {
+                 "t": "div",
+                 "a": {
+                  "class": "leading-sm custom-letter-spacing text-text text-sm font-medium uppercase"
+                 },
+                 "c": [
+                  "Careers"
+                 ]
+                },
+                {
+                 "t": "ul",
+                 "a": {
+                  "class": "mt-6 grid grid-cols-1 gap-3"
+                 },
+                 "c": [
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "a",
+                     "a": {
+                      "title": "",
+                      "target": "",
+                      "class": "text-text lg:hover:text-text-hover leading-lg font-regular lg:hover:!border-text-hover text-start text-lg lg:hover:!border-b-[1px] lg:hover:!border-solid no-select ",
+                      "data-qa": "Link",
+                      "data-testid": "Link",
+                      "href": "https://www.bayer.com/en/careers/working-at-bayer"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "c": [
+                        "Working at Bayer"
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "a",
+                     "a": {
+                      "title": "",
+                      "target": "",
+                      "class": "text-text lg:hover:text-text-hover leading-lg font-regular lg:hover:!border-text-hover text-start text-lg lg:hover:!border-b-[1px] lg:hover:!border-solid no-select ",
+                      "data-qa": "Link",
+                      "data-testid": "Link",
+                      "href": "https://www.bayer.com/en/careers/how-to-join-us"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "c": [
+                        "How to join us"
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "a",
+                     "a": {
+                      "title": "",
+                      "target": "",
+                      "class": "text-text lg:hover:text-text-hover leading-lg font-regular lg:hover:!border-text-hover text-start text-lg lg:hover:!border-b-[1px] lg:hover:!border-solid no-select ",
+                      "data-qa": "Link",
+                      "data-testid": "Link",
+                      "href": "https://www.bayer.com/en/careers/career-areas"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "c": [
+                        "Career Areas"
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "a",
+                     "a": {
+                      "title": "",
+                      "target": "",
+                      "class": "text-text lg:hover:text-text-hover leading-lg font-regular lg:hover:!border-text-hover text-start text-lg lg:hover:!border-b-[1px] lg:hover:!border-solid no-select ",
+                      "data-qa": "Link",
+                      "data-testid": "Link",
+                      "href": "https://www.bayer.com/en/careers/contact-careers-team"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "c": [
+                        "Contact"
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "t": "div",
+           "a": {
+            "class": "grid-col-1 grid gap-4 px-5 pt-6 pb-32 md:gap-5 md:px-8 md:pb-36 lg:px-10 xl:w-full xl:grid-cols-[501px_1fr] xl:gap-8 xl:px-24"
+           },
+           "c": [
+            {
+             "t": "div",
+             "a": {
+              "class": "flex"
+             },
+             "c": [
+              {
+               "t": "span",
+               "a": {
+                "data-qa": "footer-copyright",
+                "class": "text-text leading-sm font-regular text-xs uppercase"
+               },
+               "c": [
+                " Copyright © Bayer AG"
+               ]
+              }
+             ]
+            },
+            {
+             "t": "nav",
+             "a": {
+              "aria-label": "Legal and utility links"
+             },
+             "c": [
+              {
+               "t": "div",
+               "a": {
+                "data-testid": "footer-links",
+                "data-qa": "footer-links",
+                "class": "w-full"
+               },
+               "c": [
+                {
+                 "t": "ul",
+                 "a": {
+                  "data-testid": "lower-links",
+                  "data-qa": "lower-links",
+                  "class": "flex flex-wrap gap-x-8 gap-y-3 lg:pl-0"
+                 },
+                 "c": [
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "a",
+                     "a": {
+                      "title": "",
+                      "target": "",
+                      "class": "text-text lg:hover:!text-text-hover font-regular leading-sm lg:hover:!border-text-hover text-xs uppercase lg:hover:!border-t-[0px] lg:hover:!border-r-[0px] lg:hover:!border-b-[1px] lg:hover:!border-l-[0px] lg:hover:!border-solid no-select ",
+                      "data-qa": "Link",
+                      "data-testid": "Link",
+                      "href": "https://www.bayer.com/en/legal-notices/glob-conditions-of-use"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "c": [
+                        "Conditions of Use"
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "a",
+                     "a": {
+                      "title": "",
+                      "target": "",
+                      "class": "text-text lg:hover:!text-text-hover font-regular leading-sm lg:hover:!border-text-hover text-xs uppercase lg:hover:!border-t-[0px] lg:hover:!border-r-[0px] lg:hover:!border-b-[1px] lg:hover:!border-l-[0px] lg:hover:!border-solid no-select ",
+                      "data-qa": "Link",
+                      "data-testid": "Link",
+                      "href": "https://www.bayer.com/en/legal-notices/privacy-statement"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "c": [
+                        "Privacy Statement"
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "button",
+                     "a": {
+                      "type": "button",
+                      "class": "text-text lg:hover:!text-text-hover font-regular leading-sm text-xs uppercase no-select no-select  ot-sdk-show-settings !text-text !font-regular !p-0 !leading-sm !text-xs !uppercase !bg-transparent !border-none hover:!border-none lg:hover:!border-none hover:underline hover:underline-offset-2",
+                      "data-qa": "CookieConsentButton",
+                      "data-testid": "CookieConsentButton",
+                      "id": "ot-sdk-btn"
+                     },
+                     "c": [
+                      "Cookie Settings"
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "a",
+                     "a": {
+                      "title": "",
+                      "target": "",
+                      "class": "text-text lg:hover:!text-text-hover font-regular leading-sm lg:hover:!border-text-hover text-xs uppercase lg:hover:!border-t-[0px] lg:hover:!border-r-[0px] lg:hover:!border-b-[1px] lg:hover:!border-l-[0px] lg:hover:!border-solid no-select ",
+                      "data-qa": "Link",
+                      "data-testid": "Link",
+                      "href": "https://www.bayer.com/en/legal-notices/imprint"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "c": [
+                        "Imprint"
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "t": "li",
+                   "c": [
+                    {
+                     "t": "a",
+                     "a": {
+                      "title": "",
+                      "target": "",
+                      "class": "text-text lg:hover:!text-text-hover font-regular leading-sm lg:hover:!border-text-hover text-xs uppercase lg:hover:!border-t-[0px] lg:hover:!border-r-[0px] lg:hover:!border-b-[1px] lg:hover:!border-l-[0px] lg:hover:!border-solid no-select ",
+                      "data-qa": "Link",
+                      "data-testid": "Link",
+                      "href": "https://www.bayer.com/en/investors/sustainability/ethical-standards/bayer-modern-slavery-statement"
+                     },
+                     "c": [
+                      {
+                       "t": "span",
+                       "c": [
+                        "Modern Slavery Act Statement"
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
