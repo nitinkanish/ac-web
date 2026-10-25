@@ -26,6 +26,7 @@ export default function EnquiryForm({
   selectedCourse?: string;
 }) {
   const [state, action, pending] = useActionState(submitForm, initial);
+  if (kind === "newsletter") return <NewsletterForm source={source} state={state} action={action} pending={pending} />;
   if (state.status === "ok") {
     return (
       <div className="border border-border-accented p-4" role="status">
@@ -52,16 +53,12 @@ export default function EnquiryForm({
           <input name="company" tabIndex={-1} autoComplete="off" />
         </label>
       </p>
-      {kind !== "newsletter" ? (
-        <Field label="Name" name="name" error={errors.name} autoComplete="name" required />
-      ) : (
-        <Field label="Name, if you want it on the list" name="name" autoComplete="name" />
-      )}
-      <Field label="Email" name="email" type="email" error={errors.email} autoComplete="email" required={kind === "newsletter"} />
-      {kind !== "newsletter" ? <Field label="Mobile" name="phone" type="tel" autoComplete="tel" /> : null}
+      <Field label="Name" name="name" error={errors.name} autoComplete="name" required />
+      <Field label="Email" name="email" type="email" error={errors.email} autoComplete="email" />
+      <Field label="Mobile" name="phone" type="tel" autoComplete="tel" />
       {errors.contact ? <p className="text-sm">{errors.contact}</p> : null}
       {kind === "contact" ? <Field label="Organisation" name="organisation" /> : null}
-      {kind !== "newsletter" && kind !== "contact" ? <Field label="Location" name="location" autoComplete="address-level2" /> : null}
+      {kind !== "contact" ? <Field label="Location" name="location" autoComplete="address-level2" /> : null}
       {kind === "consultation" ? (
         <fieldset className="m-0 border-0 p-0">
           <legend>Preferred mode</legend>
@@ -116,7 +113,7 @@ export default function EnquiryForm({
       <label className="mt-4 flex items-start gap-2">
         <input type="checkbox" name="consent" value="yes" />
         <span>
-          {kind === "newsletter" ? "I agree to receive the newsletter. I can unsubscribe later." : "I agree to be contacted about this enquiry."}{" "}
+          I agree to be contacted about this enquiry.{" "}
           <Link href="/privacy">Privacy policy</Link>.
         </span>
       </label>
@@ -124,6 +121,64 @@ export default function EnquiryForm({
       <div className="mt-6">
         <button className={button} type="submit" disabled={pending}>
           {pending ? "Sending" : "Send"}
+        </button>
+      </div>
+    </form>
+  );
+}
+
+function NewsletterForm({
+  source,
+  state,
+  action,
+  pending,
+}: {
+  source: string;
+  state: FormState;
+  action: (payload: FormData) => void;
+  pending: boolean;
+}) {
+  if (state.status === "ok") {
+    return (
+      <div role="status">
+        <h3 className="font-regular text-2xl">This request is saved.</h3>
+        <p className="mt-2">
+          Your reference is <strong>{state.reference}</strong>. Occasional notes will use the email you gave.
+        </p>
+      </div>
+    );
+  }
+  const errors = state.status === "error" ? state.errors : {};
+  return (
+    <form action={action} noValidate>
+      {errors.form ? <p role="alert">{errors.form}</p> : null}
+      <input type="hidden" name="kind" value="newsletter" />
+      <input type="hidden" name="source" value={source} />
+      <p className="hp" aria-hidden="true">
+        <label>
+          Company
+          <input name="company" tabIndex={-1} autoComplete="off" />
+        </label>
+      </p>
+      <label className="block">
+        <span className="mb-1 block text-sm">Email</span>
+        <input className="news-field" name="email" type="email" autoComplete="email" required aria-invalid={Boolean(errors.email)} placeholder="you@example.com" />
+        {errors.email ? <span className="mt-1 block text-sm">{errors.email}</span> : null}
+      </label>
+      <label className="mt-4 block">
+        <span className="mb-1 block text-sm">Name, if you want it on the list</span>
+        <input className="news-field" name="name" autoComplete="name" />
+      </label>
+      <label className="mt-4 flex items-start gap-2">
+        <input className="mt-1" type="checkbox" name="consent" value="yes" />
+        <span>
+          I agree to receive the newsletter. I can unsubscribe later. <Link href="/privacy">Privacy policy</Link>.
+        </span>
+      </label>
+      {errors.consent ? <p className="mt-1 text-sm">{errors.consent}</p> : null}
+      <div className="mt-6">
+        <button className={button} type="submit" disabled={pending}>
+          {pending ? "Sending" : "Join the list"}
         </button>
       </div>
     </form>

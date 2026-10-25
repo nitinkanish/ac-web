@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import EnquiryForm from "@/components/EnquiryForm";
 import { nakshatras } from "@/lib/nakshatra";
 import { childrenOf, crumbsFor, isRecord, resolve, type Resolved, type RouteDef } from "@/lib/routes";
+import { cardPhoto, photoFor, type Photo } from "@/lib/photos";
 import { button, display, pad, stage, title } from "@/lib/ui";
 import { getCollection, getHome, getPage, getRecord, metaLines, metaText, type WpItem, type WpPage } from "@/lib/wp";
 
@@ -24,7 +25,11 @@ async function HomeScreen() {
   return (
     <>
       <section className="relative min-h-screen w-full overflow-hidden bg-black supports-[height:100dvh]:min-h-[100dvh]" aria-label="Homepage Hero">
-        <div className="bg-background-bg-inverted-30 absolute inset-0" />
+        <img src="/photos/herbs-honey.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <video className="hero-video" autoPlay muted loop playsInline poster="/photos/herbs-honey.jpg">
+          <source src="/video/hero.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(3,11,16,.84), rgba(3,11,16,.28) 52%, rgba(3,11,16,.5))" }} />
         <div className="absolute bottom-[136px] w-full px-8 text-center text-text-inverted">
           <p className="text-sm italic uppercase tracking-[0.42px]">{settings.heroKicker}</p>
           <h1 className="mt-4 text-5xl font-bold leading-5xl-tight md:text-6xl">{settings.heroTitle}</h1>
@@ -38,13 +43,16 @@ async function HomeScreen() {
       <section className={`${pad} py-16`}>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-4">
           {[
-            ["/ayush/ayurveda", "01", "Ayurveda", "A plain introduction to the tradition he trained in."],
-            ["/plants", "02", "Medicinal plants", "Profiles, cultivation, and conservation."],
-            ["/courses", "03", "Education", "Courses and applications, without invented fees."],
-            ["/programmes", "04", "Livelihood", "Gardens, incubation, and community programmes."],
-          ].map(([href, index, heading, text]) => (
+            ["/ayush/ayurveda", "01", "Ayurveda", "A plain introduction to the tradition he trained in.", "/photos/brass-bowl.jpg", "A brass bowl and flower"],
+            ["/plants", "02", "Medicinal plants", "Profiles, cultivation, and conservation.", "/photos/turmeric.jpg", "Fresh turmeric roots"],
+            ["/courses", "03", "Education", "Courses and applications, without invented fees.", "/photos/hands-herbs.jpg", "Hands working herbs in a mortar"],
+            ["/programmes", "04", "Livelihood", "Gardens, incubation, and community programmes.", "/photos/spices-market.jpg", "Dried fruit, tea, and spices"],
+          ].map(([href, index, heading, text, src, alt]) => (
             <article key={href}>
-              <p className="text-sm italic uppercase">{index}</p>
+              <Link href={href} className="block">
+                <img src={src} alt={alt} className="h-64 w-full object-cover" />
+              </Link>
+              <p className="mt-4 text-sm italic uppercase">{index}</p>
               <h2 className={`${title} mt-2`}>
                 <Link href={href}>{heading}</Link>
               </h2>
@@ -58,15 +66,18 @@ async function HomeScreen() {
         <h2 className={`${display} text-text`}>Three ways in</h2>
         <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-3">
           <article>
-            <h3 className={title}><Link href="/consultations">Consultations</Link></h3>
+            <Link href="/consultations" className="block"><img src="/photos/tea.jpg" alt="A glass cup of tea" className="h-64 w-full object-cover" /></Link>
+            <h3 className={`${title} mt-4`}><Link href="/consultations">Consultations</Link></h3>
             <p className="mt-2">An enquiry for in-person, WhatsApp, Zoom, email, or post. No payment on this site.</p>
           </article>
           <article>
-            <h3 className={title}><Link href="/courses">Courses</Link></h3>
+            <Link href="/courses" className="block"><img src="/photos/mortar.jpg" alt="A mortar and pestle with dried flowers" className="h-64 w-full object-cover" /></Link>
+            <h3 className={`${title} mt-4`}><Link href="/courses">Courses</Link></h3>
             <p className="mt-2">{home.courses.length ? `${home.courses.length} published` : "The catalogue is ready. Intakes are announced when dates are real."}</p>
           </article>
           <article>
-            <h3 className={title}><Link href="/knowledge/articles">Articles</Link></h3>
+            <Link href="/knowledge/articles" className="block"><img src="/photos/herbal-jars.jpg" alt="Jars of herbs on a wooden table" className="h-64 w-full object-cover" /></Link>
+            <h3 className={`${title} mt-4`}><Link href="/knowledge/articles">Articles</Link></h3>
             <p className="mt-2">{home.articles.length ? home.articles.map((item) => item.title).join(", ") : "Essays will appear here as they are published."}</p>
           </article>
         </div>
@@ -86,12 +97,20 @@ async function HomeScreen() {
           <div>
             {home.plants.length ? (
               <ul className="m-0 list-none p-0">
-                {home.plants.map((item) => (
-                  <li key={item.id} className="border-b border-border-accented py-4">
-                    <Link className="text-2xl font-regular" href={item.path}>{item.title}</Link>
-                    <p className="mt-1 text-base">{item.summary}</p>
-                  </li>
-                ))}
+                {home.plants.map((item, index) => {
+                  const photo = photoFor(item.path) || cardPhoto(index);
+                  return (
+                    <li key={item.id} className="border-b border-border-accented py-4">
+                      <Link className="flex items-center gap-4" href={item.path}>
+                        <img src={photo.src} alt="" width={96} height={96} className="h-16 w-16 object-cover" />
+                        <span>
+                          <span className="block text-2xl font-regular">{item.title}</span>
+                          <span className="mt-1 block text-base">{item.summary}</span>
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             ) : (
               <p>Plant profiles are added one at a time from WordPress. None are public yet.</p>
@@ -105,22 +124,45 @@ async function HomeScreen() {
         <ChildList parent="/programmes" />
       </section>
       <section className={pad}>
-        <div className="border border-border-accented p-6">
-          <p className="text-sm italic uppercase">Medical astrology</p>
-          <h2 className={title}>Education only</h2>
-          <p className="mt-2">There is no chart order and no payment. The nakshatra page names plants. It does not read a birth chart.</p>
-          <p className="mt-4"><Link href="/medical-astrology">Read the introduction</Link></p>
+        <div className="grid grid-cols-1 items-center gap-8 border border-border-accented lg:grid-cols-2">
+          <img src="/photos/bhringraj.jpg" alt="A white bhringraj flower and green leaves" className="h-96 w-full object-cover" />
+          <div className="p-6">
+            <p className="text-sm italic uppercase">Medical astrology</p>
+            <h2 className={title}>Education only</h2>
+            <p className="mt-2">There is no chart order and no payment. The nakshatra page names plants. It does not read a birth chart.</p>
+            <p className="mt-4"><Link href="/medical-astrology">Read the introduction</Link></p>
+          </div>
         </div>
       </section>
-      <section className={`${pad} py-16`} id="newsletter">
-        <p className="text-sm italic uppercase">Newsletter</p>
-        <h2 className={display}>Occasional notes</h2>
-        <p className="mt-2 max-w-4xl">Official WhatsApp and Telegram links will be added when the team publishes them.</p>
-        <div className="mt-6 max-w-xl">
-          <EnquiryForm kind="newsletter" source="/" />
-        </div>
-      </section>
+      <NewsletterBand source="/" />
     </>
+  );
+}
+
+function NewsletterBand({ source }: { source: string }) {
+  return (
+    <section className="news-band" id="newsletter" aria-labelledby="newsletter-title">
+      <img className="news-band-photo" src="/photos/flowers.jpg" alt="" />
+      <div className="news-band-scrim" />
+      <div className={`${pad} news-band-inner`}>
+        <div>
+          <p className="text-sm italic uppercase">Newsletter</p>
+          <h2 className={`${display} mt-3`} id="newsletter-title">Occasional notes</h2>
+          <p className="mt-4 max-w-xl text-2xl font-regular">Plants, courses, and the work in Himachal Pradesh. No payment on this list.</p>
+          <ul className="news-points">
+            <li>A note when something new is published</li>
+            <li>Your email is used only for this list</li>
+            <li>You can unsubscribe later</li>
+          </ul>
+          <p className="mt-4 max-w-xl text-base">Official WhatsApp and Telegram links will be added when the team publishes them.</p>
+        </div>
+        <div className="news-card">
+          <p className="text-sm italic uppercase">Join the list</p>
+          <p className="mt-2 mb-4">Leave an email. A name is optional.</p>
+          <EnquiryForm kind="newsletter" source={source} />
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -138,6 +180,9 @@ function Shell({ route, title: heading, summary, page }: { route: { path: string
           ))}
         </ol>
       </nav>
+      {route.path === "/about/dr-arun-chandan" ? (
+        <img className="portrait" src="/photos/arun-chandan.png" alt="Dr Arun Chandan" width={800} height={800} />
+      ) : null}
       <p className="mt-6 text-sm italic uppercase">{page?.kicker || route.kicker}</p>
       <h1 className={`${display} mt-3 text-text`}>{heading}</h1>
       {summary ? <p className="mt-4 max-w-4xl text-2xl font-regular">{summary}</p> : null}
@@ -148,8 +193,15 @@ function Shell({ route, title: heading, summary, page }: { route: { path: string
           General education, not a diagnosis or emergency care. <Link href="/medical-disclaimer">Medical disclaimer</Link>.
         </p>
       ) : null}
+      {route.path === "/about/dr-arun-chandan" ? null : <PagePhoto path={route.path} />}
     </header>
   );
+}
+
+function PagePhoto({ path }: { path: string }) {
+  const photo = photoFor(path);
+  if (!photo) return null;
+  return <img src={photo.src} alt={photo.alt} className="mt-8 h-96 w-full object-cover" />;
 }
 
 function Body({ page }: { page: WpPage | null }) {
@@ -205,11 +257,10 @@ async function CatalogueScreen({ route, search }: { route: RouteDef; search?: st
           <button className={button} type="submit">Search</button>
         </form>
         {collection.items.length ? (
-          <ul className="m-0 mt-8 list-none p-0">
-            {collection.items.map((item) => (
-              <li key={item.id} className="border-b border-border-accented py-4">
-                <ItemLink item={item} />
-                <p className="mt-1 text-base">{itemLine(item)}</p>
+          <ul className="m-0 mt-8 grid list-none grid-cols-1 gap-8 p-0 lg:grid-cols-3">
+            {collection.items.map((item, index) => (
+              <li key={item.id}>
+                <CatalogueCard item={item} photo={photoFor(item.path) || cardPhoto(index)} />
                 {item.status === "draft" ? <p className="mt-1 text-sm">Draft</p> : null}
               </li>
             ))}
@@ -222,11 +273,19 @@ async function CatalogueScreen({ route, search }: { route: RouteDef; search?: st
   );
 }
 
-function ItemLink({ item }: { item: WpItem }) {
+function CatalogueCard({ item, photo }: { item: WpItem; photo: Photo }) {
+  const line = itemLine(item);
   const external = metaText(item, "externalUrl");
-  if (external) return <a className="text-2xl font-regular" href={external}>{item.title}</a>;
-  if (item.type === "publication" || item.type === "event" || item.type === "programme") return <strong className="text-2xl font-regular">{item.title}</strong>;
-  return <Link className="text-2xl font-regular" href={item.path}>{item.title}</Link>;
+  const body = (
+    <>
+      <img src={photo.src} alt="" className="h-64 w-full object-cover" />
+      <span className="mt-3 block text-2xl font-regular">{item.title}</span>
+      {line ? <span className="mt-1 block text-base">{line}</span> : null}
+    </>
+  );
+  if (external) return <a className="block" href={external}>{body}</a>;
+  if (item.type === "publication" || item.type === "event" || item.type === "programme") return <div>{body}</div>;
+  return <Link className="block" href={item.path}>{body}</Link>;
 }
 
 function itemLine(item: WpItem) {
@@ -323,12 +382,19 @@ async function FormScreen({ route, course }: { route: RouteDef; course?: string 
   return (
     <article>
       <Shell route={route} title={page?.title || route.title} summary={page?.summary || route.description} page={page} />
-      <div className={`${pad} py-12`}>
-        <Body page={page} />
-        <div className="mt-8 max-w-xl">
-          <EnquiryForm kind={route.form || "contact"} source={route.path} courses={courses.map((item) => ({ slug: item.slug, title: item.title }))} selectedCourse={course || ""} />
+      {route.form === "newsletter" ? (
+        <>
+          <div className={`${pad} py-12`}><Body page={page} /></div>
+          <NewsletterBand source={route.path} />
+        </>
+      ) : (
+        <div className={`${pad} py-12`}>
+          <Body page={page} />
+          <div className="mt-8 max-w-xl">
+            <EnquiryForm kind={route.form || "contact"} source={route.path} courses={courses.map((item) => ({ slug: item.slug, title: item.title }))} selectedCourse={course || ""} />
+          </div>
         </div>
-      </div>
+      )}
     </article>
   );
 }
