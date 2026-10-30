@@ -5,7 +5,7 @@ import { pad } from "@/lib/ui";
 const groups = [
   { title: "About", path: "/about" },
   { title: "Knowledge", path: "/knowledge" },
-  { title: "Programmes", path: "/programmes" },
+  { title: "Work with us", path: "/consulting" },
 ];
 
 export default function Footer() {
@@ -58,6 +58,10 @@ export default function Footer() {
             <Link href="/contact">Contact</Link>
             {" · "}
             <Link href="/community/newsletter">Newsletter</Link>
+            {" · "}
+            <Link href="/collaborate">Collaborate</Link>
+            {" · "}
+            <Link href="/hi">हिन्दी</Link>
           </p>
           <p className="mt-4">
             <button className="text-sm underline" type="button" id="privacy-choices">

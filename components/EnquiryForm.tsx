@@ -20,7 +20,7 @@ export default function EnquiryForm({
   courses = [],
   selectedCourse = "",
 }: {
-  kind: "consultation" | "application" | "contact" | "newsletter";
+  kind: "consultation" | "application" | "contact" | "newsletter" | "collaborate";
   source: string;
   courses?: { slug: string; title: string }[];
   selectedCourse?: string;
@@ -57,8 +57,20 @@ export default function EnquiryForm({
       <Field label="Email" name="email" type="email" error={errors.email} autoComplete="email" />
       <Field label="Mobile" name="phone" type="tel" autoComplete="tel" />
       {errors.contact ? <p className="text-sm">{errors.contact}</p> : null}
-      {kind === "contact" ? <Field label="Organisation" name="organisation" /> : null}
-      {kind !== "contact" ? <Field label="Location" name="location" autoComplete="address-level2" /> : null}
+      {kind === "contact" || kind === "collaborate" ? <Field label="Organisation" name="organisation" /> : null}
+      {kind !== "contact" && kind !== "collaborate" ? <Field label="Location" name="location" autoComplete="address-level2" /> : null}
+      {kind === "collaborate" ? (
+        <label className="mt-4 block">
+          <span className="mb-1 block text-sm">Pathway</span>
+          <select className={field} name="topic" defaultValue="" aria-invalid={Boolean(errors.topic)}>
+            <option value="">Choose one</option>
+            {["Consultation", "Research proposal", "Cultivation partnership", "Product development", "Speaking invitation", "Academy", "Contribute knowledge"].map((topic) => (
+              <option key={topic}>{topic}</option>
+            ))}
+          </select>
+          {errors.topic ? <span className="mt-1 block text-sm">{errors.topic}</span> : null}
+        </label>
+      ) : null}
       {kind === "consultation" ? (
         <fieldset className="m-0 border-0 p-0">
           <legend>Preferred mode</legend>
@@ -109,7 +121,7 @@ export default function EnquiryForm({
           <Area label="Background" name="background" />
         </>
       ) : null}
-      {kind === "contact" ? <Area label="Message" name="message" error={errors.message} required /> : null}
+      {kind === "contact" || kind === "collaborate" ? <Area label="Message" name="message" error={errors.message} required /> : null}
       <label className="mt-4 flex items-start gap-2">
         <input type="checkbox" name="consent" value="yes" />
         <span>

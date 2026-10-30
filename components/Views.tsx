@@ -22,6 +22,8 @@ export async function PageScreen({ path, search, course }: { path: string; searc
 async function HomeScreen() {
   const home = await getHome();
   const { settings } = home;
+  const projects = await getCollection({ type: "programme" });
+  const films = await getCollection({ type: "publication", publicationType: "video" });
   return (
     <>
       <section className="relative min-h-screen w-full overflow-hidden bg-black supports-[height:100dvh]:min-h-[100dvh]" aria-label="Homepage Hero">
@@ -35,102 +37,139 @@ async function HomeScreen() {
           <h1 className="mt-4 text-5xl font-bold leading-5xl-tight md:text-6xl">{settings.heroTitle}</h1>
           <p className="mx-auto mt-4 max-w-4xl text-2xl font-regular">{settings.heroLead}</p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link className={button} href="/about">Explore the work</Link>
-            <Link className={button} href="/consultations/request">Request a consultation</Link>
+            <Link className={button} href="/knowledge">Explore knowledge</Link>
+            <Link className={button} href="/collaborate">Work with me</Link>
           </div>
         </div>
       </section>
       <section className={`${pad} py-16`}>
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[8.5rem_1fr]">
+          <img className="portrait portrait-lg" src="/photos/arun-chandan.png" alt="Dr Arun Chandan" width={800} height={800} />
+          <div>
+            <p className="text-sm italic uppercase">Verified from the public biography</p>
+            <h2 className={`${title} mt-2`}>Experience on the record</h2>
+            <ul className="m-0 mt-4 list-none p-0">
+              {[
+                "BAMS, 1990, Rajiv Gandhi Government Ayurvedic College, Paprola.",
+                "Later led the Regional-cum-Facilitation Centre, Northern Region-I, National Medicinal Plants Board.",
+                "Retired from government service in May 2026. Advisory work continues.",
+                "Based between Dharamshala and Joginder Nagar, Himachal Pradesh.",
+              ].map((fact) => (
+                <li key={fact} className="border-b border-border-accented py-3">{fact}</li>
+              ))}
+            </ul>
+            <p className="mt-4"><Link href="/about/dr-arun-chandan">Read the biography</Link></p>
+          </div>
+        </div>
+        <ul className="audience">
           {[
-            ["/ayush/ayurveda", "01", "Ayurveda", "A plain introduction to the tradition he trained in.", "/photos/brass-bowl.jpg", "A brass bowl and flower"],
-            ["/plants", "02", "Medicinal plants", "Profiles, cultivation, and conservation.", "/photos/turmeric.jpg", "Fresh turmeric roots"],
-            ["/courses", "03", "Education", "Courses and applications, without invented fees.", "/photos/hands-herbs.jpg", "Hands working herbs in a mortar"],
-            ["/programmes", "04", "Livelihood", "Gardens, incubation, and community programmes.", "/photos/spices-market.jpg", "Dried fruit, tea, and spices"],
-          ].map(([href, index, heading, text, src, alt]) => (
-            <article key={href}>
-              <Link href={href} className="block">
-                <img src={src} alt={alt} className="h-64 w-full object-cover" />
+            ["/plants/cultivation", "Farmers and FPOs", "Cultivation, planting material, and conservation. A species note names the plant. It does not set a crop recipe."],
+            ["/research", "Researchers", "Public project notes and essays. Laboratory files and unpublished results stay off this site."],
+            ["/consulting", "Manufacturers", "Identity, quality, and whether a product idea deserves a scoped feasibility review."],
+            ["/academy", "Students", "Course outlines for medicinal plants and community knowledge. Dates and fees wait for a real intake."],
+            ["/consulting/evaluation-and-policy", "Policy teams", "Programme design and evaluation questions, scoped in writing before any finding is claimed."],
+            ["/collaborate", "Partners", "A research idea, a field collaboration, or an invitation to speak. The form is not a contract."],
+          ].map(([href, heading, text]) => (
+            <li key={href}>
+              <Link href={href}>
+                <strong>{heading}</strong>
+                <span>{text}</span>
               </Link>
-              <p className="mt-4 text-sm italic uppercase">{index}</p>
-              <h2 className={`${title} mt-2`}>
-                <Link href={href}>{heading}</Link>
-              </h2>
-              <p className="mt-2 text-base leading-base-tight">{text}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section className={`${pad} py-16`}>
+        <p className="text-sm italic uppercase">Six pillars</p>
+        <h2 className={`${display} mt-3`}>Where the work sits</h2>
+        <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-3">
+          {[
+            ["/lokayurveda", "LokAyurveda", "Community knowledge, recorded with consent.", "/photos/flowers.jpg", "A row of colourful flowers"],
+            ["/medicinal-plants", "Medicinal plants", "Species notes for identity, cultivation context, and conservation.", "/photos/turmeric.jpg", "Fresh turmeric roots"],
+            ["/research", "Research", "Public project notes. Unpublished results stay private.", "/photos/herbal-jars.jpg", "Jars of herbs on a wooden table"],
+            ["/academy", "Academy", "Course outlines. Dates and fees wait for a real intake.", "/photos/hands-herbs.jpg", "Hands working herbs in a mortar"],
+            ["/consulting", "Consulting", "Advisory conversations. No price list on this site.", "/photos/tea.jpg", "A glass cup of tea"],
+            ["/collaborate", "Collaborate", "A proposal from a farmer, a laboratory, a brand, or an institution.", "/photos/spices-market.jpg", "Dried fruit, tea, and spices"],
+          ].map(([href, heading, text, src, alt]) => (
+            <article key={href}>
+              <Link className="info-card" href={href}>
+                <img src={src} alt={alt} />
+                <div>
+                  <strong>{heading}</strong>
+                  <p>{text}</p>
+                </div>
+              </Link>
             </article>
           ))}
         </div>
       </section>
       <section className={`${pad} bg-background-bg-stage py-16`}>
-        <p className="text-sm italic uppercase">Start here</p>
-        <h2 className={`${display} text-text`}>Three ways in</h2>
-        <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-3">
-          <article>
-            <Link href="/consultations" className="block"><img src="/photos/tea.jpg" alt="A glass cup of tea" className="h-64 w-full object-cover" /></Link>
-            <h3 className={`${title} mt-4`}><Link href="/consultations">Consultations</Link></h3>
-            <p className="mt-2">An enquiry for in-person, WhatsApp, Zoom, email, or post. No payment on this site.</p>
-          </article>
-          <article>
-            <Link href="/courses" className="block"><img src="/photos/mortar.jpg" alt="A mortar and pestle with dried flowers" className="h-64 w-full object-cover" /></Link>
-            <h3 className={`${title} mt-4`}><Link href="/courses">Courses</Link></h3>
-            <p className="mt-2">{home.courses.length ? `${home.courses.length} published` : "The catalogue is ready. Intakes are announced when dates are real."}</p>
-          </article>
-          <article>
-            <Link href="/knowledge/articles" className="block"><img src="/photos/herbal-jars.jpg" alt="Jars of herbs on a wooden table" className="h-64 w-full object-cover" /></Link>
-            <h3 className={`${title} mt-4`}><Link href="/knowledge/articles">Articles</Link></h3>
-            <p className="mt-2">{home.articles.length ? home.articles.map((item) => item.title).join(", ") : "Essays will appear here as they are published."}</p>
-          </article>
+        <p className="text-sm italic uppercase">From the library</p>
+        <h2 className={`${display} text-text`}>Articles and plants</h2>
+        <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div>
+            <h3 className={title}><Link href="/knowledge/articles">Articles</Link></h3>
+            {home.articles.length ? (
+              <ul className="m-0 mt-4 list-none p-0">
+                {home.articles.map((item) => (
+                  <li key={item.id} className="border-b border-border-accented py-3">
+                    <Link href={item.path}>{item.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            ) : <p className="mt-4">Essays will appear here as they are published.</p>}
+          </div>
+          <div>
+            <h3 className={title}><Link href="/plants">Plant profiles</Link></h3>
+            {home.plants.length ? (
+              <ul className="m-0 mt-4 list-none p-0">
+                {home.plants.map((item) => (
+                  <li key={item.id} className="border-b border-border-accented py-3">
+                    <Link href={item.path}>{item.title}</Link>
+                    {metaText(item, "botanicalName") ? <span className="mt-1 block text-base">{metaText(item, "botanicalName")}</span> : null}
+                  </li>
+                ))}
+              </ul>
+            ) : <p className="mt-4">Plant profiles are added from WordPress.</p>}
+          </div>
         </div>
       </section>
       <section className={`${pad} py-16`}>
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <p className="text-sm italic uppercase">Public work</p>
+        <h2 className={`${display} mt-3`}>Projects and films</h2>
+        <p className="mt-4 max-w-3xl">Project notes stay qualitative until a source is approved. The films are the ones published on the official channel.</p>
+        <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-2">
           <div>
-            <p className="text-sm italic uppercase">Medicinal plants</p>
-            <h2 className={display}>{settings.plantsTitle}</h2>
-            <p className="mt-4 max-w-4xl text-base leading-base-tight">{settings.plantsLead}</p>
-            <p className="mt-4">
-              <Link href="/plants">Open the plant library</Link>
-              {" · "}
-              <Link href="/plants/conservation">Read about conservation</Link>
-            </p>
+            <h3 className={title}><Link href="/research/projects">Projects</Link></h3>
+            <ul className="m-0 mt-4 list-none p-0">
+              {projects.items.slice(0, 4).map((item) => (
+                <li key={item.id} className="border-b border-border-accented py-3">
+                  <Link href={metaText(item, "enquiryLink") || "/research/projects"}>{item.title}</Link>
+                  <span className="mt-1 block text-base">{item.summary}</span>
+                </li>
+              ))}
+            </ul>
           </div>
           <div>
-            {home.plants.length ? (
-              <ul className="m-0 list-none p-0">
-                {home.plants.map((item, index) => {
-                  const photo = photoFor(item.path) || cardPhoto(index);
-                  return (
-                    <li key={item.id} className="border-b border-border-accented py-4">
-                      <Link className="flex items-center gap-4" href={item.path}>
-                        <img src={photo.src} alt="" width={96} height={96} className="h-16 w-16 object-cover" />
-                        <span>
-                          <span className="block text-2xl font-regular">{item.title}</span>
-                          <span className="mt-1 block text-base">{item.summary}</span>
-                        </span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            ) : (
-              <p>Plant profiles are added one at a time from WordPress. None are public yet.</p>
-            )}
+            <h3 className={title}><Link href="/knowledge/herbal-tv">From the channel</Link></h3>
+            <ul className="m-0 mt-4 list-none p-0">
+              {films.items.slice(0, 4).map((item) => (
+                <li key={item.id} className="border-b border-border-accented py-3">
+                  <a href={metaText(item, "externalUrl") || "/publications"}>{item.title}</a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
-      <section className={`${pad} py-8`}>
-        <p className="text-sm italic uppercase">Community learning</p>
-        <h2 className={display}>Programmes</h2>
-        <ChildList parent="/programmes" />
-      </section>
-      <section className={pad}>
+      <section className={`${pad} py-16`}>
         <div className="grid grid-cols-1 items-center gap-8 border border-border-accented lg:grid-cols-2">
-          <img src="/photos/bhringraj.jpg" alt="A white bhringraj flower and green leaves" className="h-96 w-full object-cover" />
+          <img src="/photos/dried-herbs.jpg" alt="Dried herbal leaves packed in market bags" className="h-96 w-full object-cover" />
           <div className="p-6">
-            <p className="text-sm italic uppercase">Medical astrology</p>
-            <h2 className={title}>Education only</h2>
-            <p className="mt-2">There is no chart order and no payment. The nakshatra page names plants. It does not read a birth chart.</p>
-            <p className="mt-4"><Link href="/medical-astrology">Read the introduction</Link></p>
+            <p className="text-sm italic uppercase">Collaboration</p>
+            <h2 className={title}>Send a proposal</h2>
+            <p className="mt-2">Farmers, laboratories, manufacturers, institutions, and students can write. The team replies to the enquiry. Nothing on this page is a signed partnership.</p>
+            <p className="mt-4"><Link className={button} href="/collaborate">Open the collaboration form</Link></p>
           </div>
         </div>
       </section>
@@ -184,12 +223,12 @@ function Shell({ route, title: heading, summary, page }: { route: { path: string
         <img className="portrait" src="/photos/arun-chandan.png" alt="Dr Arun Chandan" width={800} height={800} />
       ) : null}
       <p className="mt-6 text-sm italic uppercase">{page?.kicker || route.kicker}</p>
-      <h1 className={`${display} mt-3 text-text`}>{heading}</h1>
-      {summary ? <p className="mt-4 max-w-4xl text-2xl font-regular">{summary}</p> : null}
-      {page?.status === "draft" ? <p className="mt-4 border border-border-accented p-4">Draft. Editors can still change this page in WordPress.</p> : null}
-      {page?.legalDraft ? <p className="mt-4 border border-border-accented p-4">Draft for legal review. Do not treat this text as a finished policy.</p> : null}
+      <h1 className="page-title mt-3 text-text">{heading}</h1>
+      {summary ? <p className="mt-4 max-w-3xl text-2xl font-regular">{summary}</p> : null}
+      {page?.status === "draft" ? <p className="note">Draft. Editors can still change this page in WordPress.</p> : null}
+      {page?.legalDraft ? <p className="note">Draft for legal review. Do not treat this text as a finished policy.</p> : null}
       {route.medical ? (
-        <p className="mt-4 border border-border-accented p-4">
+        <p className="note">
           General education, not a diagnosis or emergency care. <Link href="/medical-disclaimer">Medical disclaimer</Link>.
         </p>
       ) : null}
@@ -201,7 +240,7 @@ function Shell({ route, title: heading, summary, page }: { route: { path: string
 function PagePhoto({ path }: { path: string }) {
   const photo = photoFor(path);
   if (!photo) return null;
-  return <img src={photo.src} alt={photo.alt} className="mt-8 h-96 w-full object-cover" />;
+  return <img src={photo.src} alt={photo.alt} className="page-photo" />;
 }
 
 function Body({ page }: { page: WpPage | null }) {
@@ -216,6 +255,7 @@ async function HubScreen({ route }: { route: RouteDef }) {
       <Shell route={route} title={page?.title || route.title} summary={page?.summary || route.description} page={page} />
       <div className={`${pad} py-12`}>
         <Body page={page} />
+        <p className="mb-0 mt-10 text-sm italic uppercase">In this section</p>
         <ChildList parent={route.path} />
       </div>
     </article>
@@ -227,9 +267,11 @@ async function EditorialScreen({ route }: { route: RouteDef }) {
   return (
     <article>
       <Shell route={route} title={page?.title || route.title} summary={page?.summary || route.description} page={page} />
-      <div className={`${pad} py-12`}>
-        <Body page={page} />
-        {route.path === "/medical-astrology/plants-and-nakshatras" ? <NakshatraTable /> : null}
+      <div className={`${pad} reading py-12`}>
+        <div>
+          <Body page={page} />
+          {route.path === "/medical-astrology/plants-and-nakshatras" ? <NakshatraTable /> : null}
+        </div>
         <Related parent={route.parent} current={route.path} />
       </div>
     </article>
@@ -249,15 +291,18 @@ async function CatalogueScreen({ route, search }: { route: RouteDef; search?: st
       <Shell route={route} title={page?.title || route.title} summary={page?.summary || route.description} page={page} />
       <div className={`${pad} py-12`}>
         <Body page={page} />
-        <form className="mt-6 flex flex-col gap-4 md:flex-row md:items-end" method="get">
-          <label className="block w-full max-w-xl">
-            <span className="mb-1 block text-sm">Search</span>
-            <input className="w-full border border-border-accented bg-white px-3 py-2" name="q" defaultValue={search || ""} />
-          </label>
-          <button className={button} type="submit">Search</button>
-        </form>
+        <div className="catalogue-bar">
+          <p className="m-0">{collection.items.length ? `${collection.items.length} published` : "Nothing is published in this list yet."}</p>
+          <form className="flex flex-col gap-3 sm:flex-row sm:items-end" method="get">
+            <label className="block w-full sm:w-80">
+              <span className="mb-1 block text-sm">Search this list</span>
+              <input className="w-full border border-border-accented bg-white px-3 py-2" name="q" defaultValue={search || ""} />
+            </label>
+            <button className={button} type="submit">Search</button>
+          </form>
+        </div>
         {collection.items.length ? (
-          <ul className="m-0 mt-8 grid list-none grid-cols-1 gap-8 p-0 lg:grid-cols-3">
+          <ul className="info-grid">
             {collection.items.map((item, index) => (
               <li key={item.id}>
                 <CatalogueCard item={item} photo={photoFor(item.path) || cardPhoto(index)} />
@@ -276,16 +321,24 @@ async function CatalogueScreen({ route, search }: { route: RouteDef; search?: st
 function CatalogueCard({ item, photo }: { item: WpItem; photo: Photo }) {
   const line = itemLine(item);
   const external = metaText(item, "externalUrl");
+  const youtubeId = safeYoutube(metaText(item, "youtubeId"));
+  const src = youtubeId ? `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg` : photo.src;
   const body = (
     <>
-      <img src={photo.src} alt="" className="h-64 w-full object-cover" />
-      <span className="mt-3 block text-2xl font-regular">{item.title}</span>
-      {line ? <span className="mt-1 block text-base">{line}</span> : null}
+      <img src={src} alt="" />
+      <div>
+        <strong>{item.title}</strong>
+        {line ? <p>{line}</p> : null}
+      </div>
     </>
   );
-  if (external) return <a className="block" href={external}>{body}</a>;
-  if (item.type === "publication" || item.type === "event" || item.type === "programme") return <div>{body}</div>;
-  return <Link className="block" href={item.path}>{body}</Link>;
+  if (external) return <a className="info-card" href={external}>{body}</a>;
+  if (item.type === "publication" || item.type === "event" || item.type === "programme") {
+    const href = metaText(item, "enquiryLink");
+    if (href) return <Link className="info-card" href={href}>{body}</Link>;
+    return <div className="info-card">{body}</div>;
+  }
+  return <Link className="info-card" href={item.path}>{body}</Link>;
 }
 
 function itemLine(item: WpItem) {
@@ -304,14 +357,17 @@ async function RecordScreen({ route }: { route: Extract<Resolved, { kind: "recor
   return (
     <article>
       <Shell route={route} title={item.title} summary={item.summary} page={null} />
-      <div className={`${pad} py-12`}>
-        {item.status === "draft" ? <p className="border border-border-accented p-4">Draft.</p> : null}
-        {route.recordType === "plant" ? <PlantFacts item={item} /> : null}
-        {route.recordType === "course" ? <CourseFacts item={item} /> : null}
-        {item.html ? <div className="prose" dangerouslySetInnerHTML={{ __html: item.html }} /> : null}
-        {route.recordType === "course" ? (
-          <p className="mt-6"><Link className={button} href={`/courses/apply?course=${item.slug}`}>Apply</Link></p>
-        ) : null}
+      <div className={`${pad} reading py-12`}>
+        <div>
+          {item.status === "draft" ? <p className="note">Draft.</p> : null}
+          {route.recordType === "plant" ? <PlantFacts item={item} /> : null}
+          {route.recordType === "course" ? <CourseFacts item={item} /> : null}
+          {item.html ? <div className="prose" dangerouslySetInnerHTML={{ __html: item.html }} /> : null}
+          {route.recordType === "course" ? (
+            <p className="mt-6"><Link className={button} href={`/courses/apply?course=${item.slug}`}>Apply</Link></p>
+          ) : null}
+        </div>
+        <RecordAside item={item} />
       </div>
     </article>
   );
@@ -321,22 +377,41 @@ function PlantFacts({ item }: { item: WpItem }) {
   const rows = [
     ["Common name", metaText(item, "commonName")],
     ["Botanical name", metaText(item, "botanicalName")],
+    ["Family", metaText(item, "family")],
+    ["Local names", metaText(item, "localNames")],
     ["Region", metaText(item, "region")],
+    ["Review", metaText(item, "reviewNote")],
     ["Traditional context", metaText(item, "uses")],
     ["Cultivation", metaText(item, "cultivationNote")],
     ["Conservation", metaText(item, "conservationNote")],
     ["References", metaText(item, "references")],
   ].filter((row) => row[1]);
   if (!rows.length) return null;
+  const nameKeys = new Set(["Common name", "Botanical name", "Family", "Local names", "Region"]);
+  const named = rows.filter(([label]) => nameKeys.has(label));
+  const rest = rows.filter(([label]) => !nameKeys.has(label));
   return (
-    <dl className="mb-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
-      {rows.map(([label, value]) => (
-        <div key={label} className="border-b border-border-accented pb-3">
-          <dt className="text-sm">{label}</dt>
-          <dd className="mt-1">{value}</dd>
-        </div>
-      ))}
-    </dl>
+    <div className="identity">
+      <FactPanel title="Identity" rows={named} />
+      <FactPanel title="Limits of this note" rows={rest} />
+    </div>
+  );
+}
+
+function FactPanel({ title: heading, rows }: { title: string; rows: string[][] }) {
+  if (!rows.length) return null;
+  return (
+    <section className="identity-panel">
+      <h2>{heading}</h2>
+      <dl className="m-0">
+        {rows.map(([label, value]) => (
+          <div key={label}>
+            <dt>{label}</dt>
+            <dd>{value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
   );
 }
 
@@ -388,14 +463,38 @@ async function FormScreen({ route, course }: { route: RouteDef; course?: string 
           <NewsletterBand source={route.path} />
         </>
       ) : (
-        <div className={`${pad} py-12`}>
+        <div className={`${pad} form-split py-12`}>
           <Body page={page} />
-          <div className="mt-8 max-w-xl">
-            <EnquiryForm kind={route.form || "contact"} source={route.path} courses={courses.map((item) => ({ slug: item.slug, title: item.title }))} selectedCourse={course || ""} />
+          <div className="form-card">
+            <p className="text-sm italic uppercase">Your enquiry</p>
+            <div className="mt-4">
+              <EnquiryForm kind={route.form || "contact"} source={route.path} courses={courses.map((item) => ({ slug: item.slug, title: item.title }))} selectedCourse={course || ""} />
+            </div>
           </div>
         </div>
       )}
     </article>
+  );
+}
+
+async function ChannelList() {
+  const videos = await getCollection({ type: "publication", publicationType: "video" });
+  if (!videos.items.length) return <p className="mt-6">Films are added when they are published on the official channel.</p>;
+  return (
+    <ul className="info-grid">
+      {videos.items.map((item) => {
+        const youtubeId = safeYoutube(metaText(item, "youtubeId"));
+        const href = metaText(item, "externalUrl") || (youtubeId ? `https://www.youtube.com/watch?v=${youtubeId}` : "/publications");
+        return (
+          <li key={item.id}>
+            <a className="info-card" href={href}>
+              {youtubeId ? <img src={`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`} alt="" /> : null}
+              <div><strong>{item.title}</strong></div>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
@@ -415,7 +514,8 @@ async function FeatureScreen({ route }: { route: RouteDef }) {
             <iframe src={`https://www.youtube-nocookie.com/embed/${youtubeId}`} title={page?.title || route.title} allowFullScreen />
           </div>
         ) : null}
-        {route.feature !== "herb" && !youtubeId ? <p className="mt-6">No YouTube episode is attached to this page yet.</p> : null}
+        {route.feature === "tv" ? <ChannelList /> : null}
+        {route.feature === "podcast" ? <p className="mt-6">A separate podcast feed is not published yet. Films from the same official channel are on <Link href="/knowledge/herbal-tv">Herbal TV</Link>.</p> : null}
       </div>
     </article>
   );
@@ -426,28 +526,54 @@ function Related({ parent, current }: { parent?: string; current: string }) {
   const siblings = childrenOf(parent).filter((child) => child.path !== current).slice(0, 4);
   if (!siblings.length) return null;
   return (
-    <>
-      <h2 className={`${title} mt-12`}>Also in this section</h2>
-      <ul className="m-0 list-none p-0">
-        {siblings.map((child) => (
-          <li key={child.path} className="border-b border-border-accented py-3">
-            <Link href={child.path}>{child.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </>
+    <aside className="reading-side">
+      <p className="text-sm italic uppercase">Also in this section</p>
+      {siblings.map((child) => (
+        <Link className="side-link" key={child.path} href={child.path}>
+          {child.title}
+          <span>{child.description}</span>
+        </Link>
+      ))}
+    </aside>
+  );
+}
+
+function RecordAside({ item }: { item: WpItem }) {
+  const links = metaLines(item, "relatedLinks").slice(0, 4);
+  return (
+    <aside className="reading-side">
+      <p className="text-sm italic uppercase">Keep going</p>
+      <Link className="side-link" href={item.type === "plant" ? "/plants" : item.type === "course" ? "/courses" : "/knowledge/articles"}>
+        {item.type === "plant" ? "All species" : item.type === "course" ? "All courses" : "All articles"}
+      </Link>
+      {item.type === "plant" ? <Link className="side-link" href="/plants/conservation">Conservation</Link> : null}
+      {item.type === "article" ? <Link className="side-link" href="/lokayurveda">LokAyurveda</Link> : null}
+      {links.map((href) => (
+        <a className="side-link" key={href} href={href}>{href.replace(/^https?:\/\//, "")}</a>
+      ))}
+    </aside>
   );
 }
 
 function ChildList({ parent }: { parent: string }) {
+  const children = childrenOf(parent);
+  if (!children.length) return null;
   return (
-    <ul className="m-0 mt-8 list-none p-0">
-      {childrenOf(parent).map((child) => (
-        <li key={child.path} className="border-b border-border-accented py-4">
-          <Link className="text-2xl font-regular" href={child.path}>{child.title}</Link>
-          <p className="mt-1 text-base">{child.description}</p>
-        </li>
-      ))}
+    <ul className="info-grid">
+      {children.map((child, index) => {
+        const photo = photoFor(child.path) || cardPhoto(index);
+        return (
+          <li key={child.path}>
+            <Link className="info-card" href={child.path}>
+              <img src={photo.src} alt="" />
+              <div>
+                <strong>{child.title}</strong>
+                <p>{child.description}</p>
+              </div>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
 }

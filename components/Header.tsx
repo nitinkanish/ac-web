@@ -6,18 +6,21 @@ import { useEffect, useState } from "react";
 import { navItems } from "@/lib/routes";
 import { textLink } from "@/lib/ui";
 
-const bar = ["/about", "/plants", "/courses", "/knowledge"];
-const primaryPaths = ["/about", "/plants", "/courses", "/knowledge"];
+const bar = ["/about", "/medicinal-plants", "/knowledge", "/collaborate"];
+const primaryPaths = ["/about", "/expertise", "/lokayurveda", "/medicinal-plants"];
 const labels: Record<string, string> = {
   "/about": "About",
-  "/plants": "Plants",
-  "/courses": "Courses",
+  "/expertise": "Expertise",
+  "/lokayurveda": "LokAyurveda",
+  "/medicinal-plants": "Plants",
   "/knowledge": "Knowledge",
-  "/ayush": "Ayurveda",
-  "/consultations": "Consultations",
-  "/programmes": "Programmes",
-  "/medical-astrology": "Medical astrology",
-  "/community": "Community",
+  "/research": "Research",
+  "/consulting": "Consulting",
+  "/academy": "Academy",
+  "/collaborate": "Collaborate",
+  "/publications": "Publications",
+  "/rcfc-legacy": "RCFC legacy",
+  "/events": "Events",
 };
 
 function labelFor(path: string, title: string) {
@@ -100,6 +103,9 @@ export default function Header() {
                     <Mail />
                     Contact
                   </Link>
+                </li>
+                <li>
+                  <Link href="/hi">हिन्दी</Link>
                 </li>
               </ul>
               <form className="mega-search" action="/knowledge/articles" method="get">

@@ -28,15 +28,15 @@ export function photoFor(path: string): Photo | null {
   if (path.includes("tejpat") || path.includes("processing")) return bay;
   if (path.includes("conservation") || path.includes("kutki") || path.includes("jatamansi")) return dried;
   if (path.includes("cultivation") || path.includes("nurseries")) return turmeric;
-  if (path.startsWith("/plants")) return turmeric;
-  if (path.startsWith("/courses")) return hands;
-  if (path.startsWith("/consultations")) return tea;
+  if (path.startsWith("/plants") || path.startsWith("/medicinal-plants")) return turmeric;
+  if (path.startsWith("/courses") || path.startsWith("/academy")) return hands;
+  if (path.startsWith("/consultations") || path.startsWith("/consulting") || path.startsWith("/collaborate")) return tea;
   if (path.startsWith("/medical-astrology")) return bhringraj;
-  if (path.startsWith("/knowledge")) return jars;
-  if (path.startsWith("/programmes") || path.startsWith("/community")) return market;
-  if (path.startsWith("/about")) return flowers;
+  if (path.startsWith("/knowledge") || path.startsWith("/publications") || path.startsWith("/research")) return jars;
+  if (path.startsWith("/programmes") || path.startsWith("/community") || path.startsWith("/events")) return market;
+  if (path.startsWith("/about") || path.startsWith("/expertise") || path.startsWith("/lokayurveda") || path.startsWith("/rcfc")) return flowers;
   if (path.startsWith("/ayush")) return bowl;
-  if (path.startsWith("/contact")) return tea;
+  if (path.startsWith("/contact") || path.startsWith("/hi")) return tea;
   return leaves;
 }
 

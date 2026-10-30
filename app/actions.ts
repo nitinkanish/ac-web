@@ -59,6 +59,7 @@ function validate(data: {
   mode: string;
   course: string;
   message: string;
+  topic: string;
 }) {
   const errors: Record<string, string> = {};
   if (data.email && !emailPattern.test(data.email)) errors.email = "Enter a valid email address.";
@@ -70,13 +71,14 @@ function validate(data: {
     if (data.consent && !data.name && !data.email && !data.phone) {
       errors.contact = "Add a name, mobile number, or email so the team can respond.";
     }
-  } else if (data.kind === "consultation" || data.kind === "application" || data.kind === "contact") {
+  } else if (data.kind === "consultation" || data.kind === "application" || data.kind === "contact" || data.kind === "collaborate") {
     if (data.name.length < 2) errors.name = "Enter your name.";
     if (!data.email && !data.phone) errors.contact = "Add an email address or a mobile number.";
     if (!data.consent) errors.consent = "Consent is required so the team can reply.";
     if (data.kind === "consultation" && !data.mode) errors.mode = "Choose a preferred way to consult.";
     if (data.kind === "application" && !data.course) errors.course = "Tell us which course you want to apply for.";
-    if (data.kind === "contact" && data.message.length < 10) errors.message = "Add a short message.";
+    if ((data.kind === "contact" || data.kind === "collaborate") && data.message.length < 10) errors.message = "Add a short message.";
+    if (data.kind === "collaborate" && data.topic.length < 2) errors.topic = "Choose a pathway.";
   } else {
     errors.form = "This form is not available.";
   }

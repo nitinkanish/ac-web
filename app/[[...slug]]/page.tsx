@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageScreen } from "@/components/Views";
-import { resolve, staticPaths } from "@/lib/routes";
+import { isRecord, resolve, staticPaths } from "@/lib/routes";
+import { getRecord } from "@/lib/wp";
 
 type Props = { params: Promise<{ slug?: string[] }>; searchParams: Promise<{ q?: string; course?: string }> };
 
@@ -14,6 +15,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const path = slug?.length ? `/${slug.join("/")}` : "/";
   const resolved = resolve(path);
   if (!resolved) return { title: "Page not found" };
+  if (isRecord(resolved)) {
+    const item = await getRecord(resolved.recordType, resolved.slug);
+    if (item) return { title: item.title, description: item.summary || resolved.description, alternates: { canonical: path } };
+  }
   return {
     title: resolved.kind === "home" ? { absolute: "Dr Arun Chandan · Ayurveda, medicinal plants and livelihoods" } : resolved.title,
     description: resolved.description,
